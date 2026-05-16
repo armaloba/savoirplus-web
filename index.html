@@ -182,6 +182,59 @@
       color: #fff;
     }
 
+    /* ── Hero mockup ── */
+    .hero-mockup {
+      position: relative;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    .browser-frame {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2);
+      transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+    }
+
+    .browser-bar {
+      background: #f0f2f5;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #dde1e7;
+    }
+
+    .browser-dots { display: flex; gap: 5px; }
+    .browser-dot  { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red    { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green  { background: #28c840; }
+
+    .browser-url {
+      flex: 1;
+      background: #fff;
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-size: 0.7rem;
+      color: #666;
+      border: 1px solid #dde1e7;
+      font-family: monospace;
+    }
+
+    .browser-screenshot {
+      width: 100%;
+      display: block;
+      max-height: 340px;
+      object-fit: cover;
+      object-position: top;
+    }
+
     /* ── Features ── */
     .sp-features {
       padding: 6rem 0;
@@ -497,6 +550,27 @@
       box-shadow: 0 4px 16px rgba(13,71,161,0.3);
     }
 
+    .contact-card .form-control.is-invalid,
+    .contact-card .form-select.is-invalid {
+      border-color: #dc3545;
+      box-shadow: none;
+    }
+
+    .contact-card .form-control.is-invalid:focus,
+    .contact-card .form-select.is-invalid:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 3px rgba(220,53,69,0.15);
+    }
+
+    .field-error {
+      font-size: 0.8rem;
+      color: #dc3545;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .field-error.visible { display: block; }
+
     .form-success {
       display: none;
       text-align: center;
@@ -541,10 +615,46 @@
     .social-btn:hover { background: rgba(255,255,255,0.18); color: #fff; }
 
     /* Responsive tweaks */
+    /* ── Tablet (max 991px) ── */
+    @media (max-width: 991px) {
+      .sp-cta .col-lg-5 { text-align: center; }
+      .cta-trust { align-items: center; }
+      .sp-pourqui .col-lg-5 { text-align: center; }
+    }
+
+    /* ── Mobile (max 767px) ── */
+    @media (max-width: 767px) {
+      .feature-card.is-wide { flex-direction: column; gap: 0; }
+      .feature-card.is-wide .fi-wrap { width: 54px; height: 54px; font-size: 1.45rem; border-radius: 14px; }
+
+      .contact-card { padding: 1.5rem; }
+
+      .sp-footer .container > div {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 1rem !important;
+      }
+
+      .social-links { justify-content: center; }
+    }
+
+    /* ── Small mobile (max 576px) ── */
     @media (max-width: 576px) {
-      .sp-hero { padding: 3.5rem 0 3rem; }
+      .sp-hero { padding: 3rem 0 2.5rem; }
       .sp-features, .sp-pourqui, .sp-cta { padding: 3.5rem 0; }
       .hero-cta-group { flex-direction: column; align-items: stretch !important; }
+
+      .sp-logo { font-size: 1.2rem; }
+      .sp-logo i { font-size: 1.35rem; }
+
+      .feat-stats { gap: 0.5rem; }
+      .feat-stat-chip { font-size: 0.78rem; padding: 0.35rem 0.85rem; }
+
+      .contact-card { padding: 1.25rem; border-radius: 14px; }
+      .contact-card h3 { font-size: 1rem; }
+
+      .sp-cta { padding: 3rem 0; }
+      .cta-trust { margin-top: 1.5rem; }
     }
   </style>
 </head>
@@ -564,8 +674,8 @@
   <!-- ══════════ HERO ══════════ -->
   <section class="sp-hero">
     <div class="container">
-      <div class="row align-items-center gy-4">
-        <div class="col-lg-7">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
           <h1 class="mb-4">Modernisez l'enseignement<br class="d-none d-md-block" /> dans votre institution</h1>
           <p class="mb-5">
             Savoir+ LMS est une plateforme complète de gestion de l'apprentissage conçue pour les universités
@@ -575,6 +685,21 @@
           <div class="d-flex flex-wrap gap-3 hero-cta-group">
             <a href="#demo" class="btn-demo">Demander une démonstration</a>
             <a href="#demo" class="btn-connect-hero">Contact</a>
+          </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="hero-mockup">
+            <div class="browser-frame">
+              <div class="browser-bar">
+                <div class="browser-dots">
+                  <div class="browser-dot dot-red"></div>
+                  <div class="browser-dot dot-yellow"></div>
+                  <div class="browser-dot dot-green"></div>
+                </div>
+                <div class="browser-url">app.savoirpluslms.com</div>
+              </div>
+              <img src="images/dashboard.png" alt="Savoir+ LMS Dashboard" class="browser-screenshot" />
+            </div>
           </div>
         </div>
       </div>
@@ -822,15 +947,18 @@
               <div class="row g-3">
                 <div class="col-sm-6">
                   <label class="form-label">Nom complet <span class="text-danger">*</span></label>
-                  <input type="text" name="nom" class="form-control" placeholder="Ex. Jean Kabila" required />
+                  <input type="text" name="nom" id="nom" class="form-control" placeholder="Ex. Jean Kabila" />
+                  <div class="field-error" id="nom-error">Ce champ est obligatoire.</div>
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label">Adresse e-mail <span class="text-danger">*</span></label>
-                  <input type="email" name="email" class="form-control" placeholder="vous@institution.cd" required />
+                  <input type="email" name="email" id="email" class="form-control" placeholder="vous@institution.cd" />
+                  <div class="field-error" id="email-error">Veuillez entrer une adresse e-mail valide.</div>
                 </div>
                 <div class="col-12">
                   <label class="form-label">Institution / Établissement <span class="text-danger">*</span></label>
-                  <input type="text" name="institution" class="form-control" placeholder="Ex. Université de Kinshasa" required />
+                  <input type="text" name="institution" id="institution" class="form-control" placeholder="Ex. Université de Kinshasa" />
+                  <div class="field-error" id="institution-error">Ce champ est obligatoire.</div>
                 </div>
                 <div class="col-sm-6">
                   <label class="form-label">Téléphone</label>
@@ -847,8 +975,9 @@
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="form-label">Message (optionnel)</label>
-                  <textarea name="message" class="form-control" rows="3" placeholder="Décrivez vos besoins ou posez vos questions..."></textarea>
+                  <label class="form-label">Message <span class="text-danger">*</span></label>
+                  <textarea name="message" id="message" class="form-control" rows="3" placeholder="Décrivez vos besoins ou posez vos questions..."></textarea>
+                  <div class="field-error" id="message-error">Ce champ est obligatoire.</div>
                 </div>
                 <div class="col-12 mt-3">
                   <button type="submit" class="btn-submit">
@@ -893,8 +1022,69 @@
     const form = document.getElementById('contact-form');
     const success = document.getElementById('form-success');
 
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function setError(fieldId, errorId, message) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      field.classList.add('is-invalid');
+      if (message) error.textContent = message;
+      error.classList.add('visible');
+    }
+
+    function clearError(fieldId, errorId) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      field.classList.remove('is-invalid');
+      error.classList.remove('visible');
+    }
+
+    function isSuspicious(text) {
+      const htmlTags = /<[^>]*>/i;
+      const scriptPattern = /\b(script|onerror|onload|onclick|javascript|eval|alert|document\.)\b/i;
+      const sqlPattern = /(\bSELECT\b|\bDROP\b|\bINSERT\b|\bDELETE\b|\bUNION\b|--|;)/i;
+      const excessiveUrls = (text.match(/https?:\/\//gi) || []).length > 2;
+      return htmlTags.test(text) || scriptPattern.test(text) || sqlPattern.test(text) || excessiveUrls;
+    }
+
+    // Clear errors on input
+    ['nom', 'email', 'institution', 'message'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => clearError(id, id + '-error'));
+    });
+
+    function validate() {
+      let valid = true;
+      const nom = document.getElementById('nom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const institution = document.getElementById('institution').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!nom) { setError('nom', 'nom-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (isSuspicious(nom)) { setError('nom', 'nom-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
+      else clearError('nom', 'nom-error');
+
+      if (!email) { setError('email', 'email-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (!validateEmail(email)) { setError('email', 'email-error', 'Veuillez entrer une adresse e-mail valide.'); valid = false; }
+      else clearError('email', 'email-error');
+
+      if (!institution) { setError('institution', 'institution-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (isSuspicious(institution)) { setError('institution', 'institution-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
+      else clearError('institution', 'institution-error');
+
+      if (!message) { setError('message', 'message-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (message.length < 10) { setError('message', 'message-error', 'Le message doit contenir au moins 10 caractères.'); valid = false; }
+      else if (isSuspicious(message)) { setError('message', 'message-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
+      else clearError('message', 'message-error');
+
+      return valid;
+    }
+
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+      if (!validate()) return;
+
       const btn = form.querySelector('.btn-submit');
       btn.disabled = true;
       btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Envoi en cours...';
