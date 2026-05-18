@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos — Savoir+ LMS</title>
+  <meta name="description" content="Découvrez l'histoire de Savoir+ LMS, notre mission, nos valeurs et l'équipe derrière la plateforme de gestion académique pensée pour les universités en RDC." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <style>
+    :root {
+      --sp-blue:      #1565C0;
+      --sp-blue-dark: #0D47A1;
+      --sp-bg:        #F4F6F9;
+      --sp-text:      #1A1A2E;
+    }
+
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--sp-text); background: #fff; }
+
+    /* ── Navbar ── */
+    .sp-navbar { background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%); padding: 1.1rem 0; }
+
+    .sp-logo {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      color: #fff; text-decoration: none;
+      font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1;
+    }
+    .sp-logo:hover { color: rgba(255,255,255,0.85); }
+    .sp-logo i { font-size: 1.65rem; }
+    .sp-logo .sp-lms { font-size: 0.85rem; font-weight: 500; opacity: 0.8; letter-spacing: 0.05em; margin-top: 5px; }
+
+    .btn-nav-contact {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-contact:hover { color: #fff; }
+
+    .btn-nav-demo {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-demo:hover { color: #fff; }
+
+    .sp-toggler {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 8px; color: #fff;
+      width: 40px; height: 40px; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; cursor: pointer; transition: background 0.2s;
+    }
+    .sp-toggler:hover { background: rgba(255,255,255,0.25); }
+
+    .sp-mobile-menu {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 0.75rem 0 1rem; margin-top: 0.5rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+
+    .sp-mobile-link {
+      color: rgba(255,255,255,0.9); text-decoration: none;
+      padding: 0.6rem 0.75rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      transition: background 0.2s;
+    }
+    .sp-mobile-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%);
+      padding: 4rem 0 3rem; color: #fff;
+    }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin: 0; max-width: 560px; line-height: 1.7; }
+    .page-header .breadcrumb-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    .page-header .breadcrumb-item a:hover { color: #fff; }
+    .page-header .breadcrumb-item.active { color: rgba(255,255,255,0.5); }
+    .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+    /* ── Section shared ── */
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #EBF3FF; color: var(--sp-blue);
+      border: 1px solid #BBDEFB; border-radius: 100px;
+      padding: 0.3rem 1rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+
+    .sp-section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800; letter-spacing: -0.03em; color: var(--sp-text);
+    }
+
+    /* ── Story section ── */
+    .story-section { padding: 5rem 0; }
+
+    .story-quote {
+      background: #EBF3FF;
+      border-left: 4px solid var(--sp-blue);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem 1.75rem;
+      font-size: 1.1rem; font-weight: 600; color: var(--sp-blue-dark);
+      line-height: 1.7; font-style: italic;
+    }
+
+    .story-stat {
+      background: var(--sp-bg); border: 1px solid #e2e9f4; border-radius: 14px;
+      padding: 1.25rem 1.5rem; text-align: center;
+    }
+    .story-stat-num { font-size: 2rem; font-weight: 800; color: var(--sp-blue); letter-spacing: -0.04em; line-height: 1; }
+    .story-stat-label { font-size: 0.83rem; color: #64748b; margin-top: 0.3rem; }
+
+    /* ── Mission & Vision ── */
+    .mv-section { padding: 5rem 0; background: var(--sp-bg); }
+
+    .mv-card {
+      background: #fff; border-radius: 18px; padding: 2.25rem;
+      border: 1px solid #e2e9f4; height: 100%;
+      transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .mv-card:hover { box-shadow: 0 8px 28px rgba(21,101,192,0.09); border-color: #BBDEFB; }
+
+    .mv-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.25rem; flex-shrink: 0;
+    }
+    .mv-icon-blue   { background: #EBF3FF; color: var(--sp-blue); }
+    .mv-icon-indigo { background: #E8EAF6; color: #283593; }
+
+    .mv-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+    .mv-card p  { font-size: 0.95rem; color: #4a5568; line-height: 1.8; margin: 0; }
+
+    /* ── Values section ── */
+    .values-section { padding: 5rem 0; }
+
+    .value-card {
+      display: flex; gap: 1.125rem; align-items: flex-start;
+      padding: 1.5rem; background: var(--sp-bg); border-radius: 14px;
+      border: 1px solid #e2e9f4; height: 100%;
+      transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .value-card:hover { box-shadow: 0 6px 20px rgba(21,101,192,0.08); border-color: #BBDEFB; }
+
+    .value-icon {
+      width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    }
+    .value-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .value-card p  { font-size: 0.87rem; color: #64748b; line-height: 1.65; margin: 0; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%);
+      padding: 5rem 0; color: #fff; text-align: center;
+    }
+    .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .cta-section p  { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2rem; }
+
+    .btn-cta-primary {
+      background: #fff; color: var(--sp-blue);
+      border: none; border-radius: 10px;
+      padding: 0.85rem 2rem; font-weight: 700; font-size: 1rem;
+      text-decoration: none; transition: background 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center;
+    }
+    .btn-cta-primary:hover { background: #e8f0fe; color: var(--sp-blue-dark); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+    .btn-cta-ghost {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.6); border-radius: 10px;
+      padding: 0.85rem 2rem; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+      display: inline-flex; align-items: center;
+    }
+    .btn-cta-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ── Scroll to top ── */
+    .scroll-top {
+      position: fixed; bottom: 1.75rem; right: 1.75rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--sp-blue); color: #fff; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(21,101,192,0.35);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+      z-index: 999;
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-top:hover { background: var(--sp-blue-dark); }
+
+    /* ── Footer ── */
+    .sp-footer { background: var(--sp-text); color: rgba(255,255,255,0.6); padding: 2rem 0; font-size: 0.875rem; }
+    .sp-footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .sp-footer a:hover { color: #fff; }
+    .social-links { display: flex; gap: 0.5rem; }
+    .social-btn { width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:background 0.2s,color 0.2s; }
+    .social-btn:hover { background:rgba(255,255,255,0.18); color:#fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 767px) {
+      .sp-footer .container > div { flex-direction: column !important; text-align: center; gap: 1rem !important; }
+      .social-links { justify-content: center; }
+      .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
+    }
+
+    @media (max-width: 576px) {
+      .story-section, .mv-section, .values-section, .team-section, .cta-section { padding: 3rem 0; }
+      .sp-logo { font-size: 1.2rem; }
+      .sp-logo i { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="sp-navbar sticky-top">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="sp-logo">
+          <i class="bi bi-mortarboard-fill"></i>
+          Savoir+&nbsp;<span class="sp-lms">LMS</span>
+        </a>
+        <div class="d-none d-md-flex align-items-center gap-3">
+          <a href="a-propos.html" class="btn-nav-demo">À propos</a>
+          <a href="demo.html" class="btn-nav-demo">Démonstration</a>
+          <a href="contact.html" class="btn-nav-contact">Contact</a>
+        </div>
+        <button class="sp-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#spNav" aria-controls="spNav" aria-expanded="false" aria-label="Menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="collapse" id="spNav">
+        <div class="sp-mobile-menu">
+          <a href="a-propos.html" class="sp-mobile-link"><i class="bi bi-info-circle"></i> À propos</a>
+          <a href="demo.html" class="sp-mobile-link"><i class="bi bi-play-circle"></i> Démonstration</a>
+          <a href="contact.html" class="sp-mobile-link"><i class="bi bi-envelope"></i> Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════ PAGE HEADER ══════════ -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb" style="font-size:0.85rem;">
+          <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+          <li class="breadcrumb-item active">À propos</li>
+        </ol>
+      </nav>
+      <h1>À propos de Savoir+ LMS</h1>
+      <p>Découvrez pourquoi nous avons construit Savoir+ LMS, notre mission, notre vision et les valeurs qui nous guident.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ NOTRE HISTOIRE ══════════ -->
+  <section class="story-section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <div class="col-lg-6">
+          <div class="section-badge"><i class="bi bi-book"></i> Notre histoire</div>
+          <h2 class="sp-section-title mb-4">Né d'un besoin réel sur le terrain</h2>
+          <p style="color:#4a5568;font-size:0.97rem;line-height:1.85;margin-bottom:1.25rem;">
+            Dans de nombreuses universités et instituts supérieurs en République Démocratique du Congo,
+            la gestion académique repose encore aujourd'hui sur des tableurs, des registres papier et
+            des systèmes éparpillés. Les étudiants attendent parfois des semaines pour consulter leurs
+            résultats. Les enseignants gèrent manuellement des centaines de dossiers. Les administrations
+            peinent à produire des rapports fiables.
+          </p>
+          <p style="color:#4a5568;font-size:0.97rem;line-height:1.85;margin-bottom:1.75rem;">
+            Savoir+ LMS est né de ce constat. Nous avons construit une plateforme pensée pour le contexte
+            local — en français, accessible depuis n'importe quel appareil, et conçue pour simplifier
+            chaque aspect de la gestion académique, de l'inscription à la délibération.
+          </p>
+          <div class="story-quote">
+            « Nous croyons que chaque étudiant en RDC mérite une expérience académique moderne et
+            organisée. »
+          </div>
+        </div>
+
+        <div class="col-lg-5 offset-lg-1">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="story-stat">
+                <div class="story-stat-num">12+</div>
+                <div class="story-stat-label">Modules intégrés dans la plateforme</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="story-stat">
+                <div class="story-stat-num">100%</div>
+                <div class="story-stat-label">Conçu pour le contexte de la RDC</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="story-stat">
+                <div class="story-stat-num">Web</div>
+                <div class="story-stat-label">Accessible sur tous les appareils</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="story-stat">
+                <div class="story-stat-num">FR</div>
+                <div class="story-stat-label">Interface entièrement en français</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MISSION & VISION ══════════ -->
+  <section class="mv-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge"><i class="bi bi-compass"></i> Ce qui nous guide</div>
+        <h2 class="sp-section-title">Notre mission et notre vision</h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-6 col-lg-5">
+          <div class="mv-card">
+            <div class="mv-icon mv-icon-blue"><i class="bi bi-bullseye"></i></div>
+            <h3>Notre mission</h3>
+            <p>Moderniser la gestion de l'enseignement supérieur en République Démocratique du Congo
+            en offrant une plateforme numérique accessible, fiable et adaptée aux réalités locales —
+            pour que chaque institution puisse se concentrer sur ce qui compte vraiment : l'éducation.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-5">
+          <div class="mv-card">
+            <div class="mv-icon mv-icon-indigo"><i class="bi bi-eye"></i></div>
+            <h3>Notre vision</h3>
+            <p>Un avenir où chaque université et institut supérieur en RDC dispose des outils numériques
+            nécessaires pour offrir à ses étudiants une expérience académique organisée, transparente
+            et de qualité — quel que soit leur lieu d'étude.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ VALEURS ══════════ -->
+  <section class="values-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge"><i class="bi bi-heart"></i> Nos valeurs</div>
+        <h2 class="sp-section-title">Ce en quoi nous croyons</h2>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="value-card">
+            <div class="value-icon" style="background:#EBF3FF;color:#1565C0;"><i class="bi bi-phone"></i></div>
+            <div>
+              <h4>Accessibilité</h4>
+              <p>Une plateforme pensée pour fonctionner sur tous les appareils, même avec une connexion internet limitée.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="value-card">
+            <div class="value-icon" style="background:#E8F5E9;color:#2E7D32;"><i class="bi bi-grid-1x2"></i></div>
+            <div>
+              <h4>Simplicité</h4>
+              <p>Une prise en main rapide et intuitive, sans formation technique préalable pour les équipes administratives.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="value-card">
+            <div class="value-icon" style="background:#E0F2F1;color:#00695C;"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h4>Fiabilité</h4>
+              <p>Des données sécurisées et toujours disponibles au moment où vous en avez le plus besoin.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="value-card">
+            <div class="value-icon" style="background:#EDE7F6;color:#6A1B9A;"><i class="bi bi-people"></i></div>
+            <div>
+              <h4>Accompagnement</h4>
+              <p>Un support réactif et un accompagnement personnalisé à chaque étape de votre utilisation de la plateforme.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Rejoignez le mouvement</h2>
+      <p>Modernisez la gestion de votre institution avec Savoir+ LMS.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="demo.html" class="btn-cta-primary"><i class="bi bi-play-circle me-2"></i>Demander une démonstration</a>
+        <a href="contact.html" class="btn-cta-ghost"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="sp-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+        <span>&copy; 2026 Savoir+. Tous droits réservés.</span>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+        <div class="d-flex gap-3">
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+          <a href="conditions-dutilisation.html">Conditions d'utilisation</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" title="Retour en haut">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+</body>
+</html>
