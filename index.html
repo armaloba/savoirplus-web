@@ -534,7 +534,7 @@
       box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
     }
 
-    .contact-card textarea.form-control { resize: none; }
+    .contact-card textarea.form-control { resize: none; min-height: 120px; }
 
     .btn-submit {
       background: var(--sp-blue);
@@ -653,7 +653,8 @@
     /* ── Tablet (max 991px) ── */
     @media (max-width: 991px) {
       .sp-cta .col-lg-5 { text-align: center; }
-      .cta-trust { align-items: center; }
+      .cta-trust { align-items: flex-start; display: inline-flex; flex-direction: column; }
+      .sp-cta .col-lg-5 > div { display: flex; justify-content: center; }
       .sp-pourqui .col-lg-5 { text-align: center; }
     }
 
@@ -671,6 +672,12 @@
       }
 
       .social-links { justify-content: center; }
+
+      .sp-footer .d-flex.gap-3 {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 0.5rem !important;
+      }
     }
 
     /* ── Small mobile (max 576px) ── */
@@ -678,6 +685,17 @@
       .sp-hero { padding: 3rem 0 2.5rem; }
       .sp-features, .sp-pourqui, .sp-cta { padding: 3.5rem 0; }
       .hero-cta-group { flex-direction: column; align-items: stretch !important; }
+      .hero-cta-group .btn-demo,
+      .hero-cta-group .btn-connect-hero {
+        padding: 0;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      .hero-cta-group .btn-connect-hero { border-color: rgba(255,255,255,0.9); }
 
       .sp-logo { font-size: 1.2rem; }
       .sp-logo i { font-size: 1.35rem; }
