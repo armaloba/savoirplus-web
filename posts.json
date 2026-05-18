@@ -1,3 +1,12 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "slug": "pourquoi-votre-universite-a-besoin-dun-lms",
+      "title": "Pourquoi votre université a besoin d'un LMS en 2026",
+      "excerpt": "La gestion académique par fichiers Excel et registres papier atteint ses limites. Découvrez comment un LMS transforme le quotidien des universités et améliore l'expérience de chaque étudiant.",
+      "category": "Gestion académique",
+      "date": "2026-05-18",
+      "readTime": "4 min"
+    }
+  ]
 }
