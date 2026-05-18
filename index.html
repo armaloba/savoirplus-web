@@ -69,7 +69,7 @@
     /* ── Navbar ── */
     .sp-navbar {
       background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%);
-      padding: 0.75rem 0;
+      padding: 1.1rem 0;
     }
 
     .sp-logo {
@@ -111,22 +111,41 @@
     .btn-login:hover { background: #e8f0fe; color: var(--sp-blue-dark); }
 
     .btn-nav-contact {
-      background: transparent;
-      color: #fff;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-contact:hover { color: #fff; }
+
+    .btn-nav-demo {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-demo:hover { color: #fff; }
+
+    .sp-toggler {
+      background: rgba(255,255,255,0.15);
       border: 2px solid rgba(255,255,255,0.6);
-      border-radius: 8px;
-      padding: 0.45rem 1.1rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
+      border-radius: 8px; color: #fff;
+      width: 40px; height: 40px; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; cursor: pointer; transition: background 0.2s;
+    }
+    .sp-toggler:hover { background: rgba(255,255,255,0.25); }
+
+    .sp-mobile-menu {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 0.75rem 0 1rem; margin-top: 0.5rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
     }
 
-    .btn-nav-contact:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.12);
-      color: #fff;
+    .sp-mobile-link {
+      color: rgba(255,255,255,0.9); text-decoration: none;
+      padding: 0.6rem 0.75rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      transition: background 0.2s;
     }
+    .sp-mobile-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
 
     /* ── Hero ── */
     .sp-hero {
@@ -481,9 +500,10 @@
 
     .cta-trust {
       display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 0;
     }
 
     .cta-trust-item {
@@ -496,92 +516,23 @@
 
     .cta-trust-item i { font-size: 1rem; opacity: 1; }
 
-    /* Form card */
-    .contact-card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+    .btn-cta-primary {
+      background: #fff; color: var(--sp-blue);
+      border: none; border-radius: 10px;
+      padding: 0.85rem 2rem; font-weight: 700; font-size: 1rem;
+      text-decoration: none; transition: background 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center;
     }
+    .btn-cta-primary:hover { background: #e8f0fe; color: var(--sp-blue-dark); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
 
-    .contact-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--sp-text);
-      margin-bottom: 1.5rem;
+    .btn-cta-ghost {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.6); border-radius: 10px;
+      padding: 0.85rem 2rem; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+      display: inline-flex; align-items: center;
     }
-
-    .contact-card .form-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--sp-text);
-      margin-bottom: 0.35rem;
-    }
-
-    .contact-card .form-control,
-    .contact-card .form-select {
-      border: 1.5px solid #dce5f3;
-      border-radius: 10px;
-      padding: 0.65rem 0.9rem;
-      font-size: 0.92rem;
-      color: var(--sp-text);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .contact-card .form-control:focus,
-    .contact-card .form-select:focus {
-      border-color: var(--sp-blue);
-      box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
-    }
-
-    .contact-card textarea.form-control { resize: none; min-height: 120px; }
-
-    .btn-submit {
-      background: var(--sp-blue);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 0.75rem 1.5rem;
-      font-weight: 700;
-      font-size: 1rem;
-      width: 100%;
-      transition: background 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-submit:hover {
-      background: var(--sp-blue-dark);
-      box-shadow: 0 4px 16px rgba(13,71,161,0.3);
-    }
-
-    .contact-card .form-control.is-invalid,
-    .contact-card .form-select.is-invalid {
-      border-color: #dc3545;
-      box-shadow: none;
-    }
-
-    .contact-card .form-control.is-invalid:focus,
-    .contact-card .form-select.is-invalid:focus {
-      border-color: #dc3545;
-      box-shadow: 0 0 0 3px rgba(220,53,69,0.15);
-    }
-
-    .field-error {
-      font-size: 0.8rem;
-      color: #dc3545;
-      margin-top: 0.3rem;
-      display: none;
-    }
-
-    .field-error.visible { display: block; }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem 0;
-      color: #2E7D32;
-    }
-
-    .form-success i { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+    .btn-cta-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
 
     /* ── Footer ── */
     .sp-footer {
@@ -652,9 +603,6 @@
     /* Responsive tweaks */
     /* ── Tablet (max 991px) ── */
     @media (max-width: 991px) {
-      .sp-cta .col-lg-5 { text-align: center; }
-      .cta-trust { align-items: flex-start; display: inline-flex; flex-direction: column; }
-      .sp-cta .col-lg-5 > div { display: flex; justify-content: center; }
       .sp-pourqui .col-lg-5 { text-align: center; }
     }
 
@@ -662,8 +610,6 @@
     @media (max-width: 767px) {
       .feature-card.is-wide { flex-direction: column; gap: 0; }
       .feature-card.is-wide .fi-wrap { width: 54px; height: 54px; font-size: 1.45rem; border-radius: 14px; }
-
-      .contact-card { padding: 1.5rem; }
 
       .sp-footer .container > div {
         flex-direction: column !important;
@@ -715,12 +661,26 @@
 
   <!-- ══════════ NAVBAR ══════════ -->
   <nav class="sp-navbar sticky-top">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="/" class="sp-logo">
-        <i class="bi bi-mortarboard-fill"></i>
-        Savoir+&nbsp;<span class="sp-lms">LMS</span>
-      </a>
-      <a href="contact.html" class="btn-nav-contact">Contact</a>
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="/" class="sp-logo">
+          <i class="bi bi-mortarboard-fill"></i>
+          Savoir+&nbsp;<span class="sp-lms">LMS</span>
+        </a>
+        <div class="d-none d-md-flex align-items-center gap-3">
+          <a href="demo.html" class="btn-nav-demo">Démonstration</a>
+          <a href="contact.html" class="btn-nav-contact">Contact</a>
+        </div>
+        <button class="sp-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#spNav" aria-controls="spNav" aria-expanded="false" aria-label="Menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="collapse" id="spNav">
+        <div class="sp-mobile-menu">
+          <a href="demo.html" class="sp-mobile-link"><i class="bi bi-play-circle"></i> Démonstration</a>
+          <a href="contact.html" class="sp-mobile-link"><i class="bi bi-envelope"></i> Contact</a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -736,7 +696,7 @@
             Gérez vos cours, vos étudiants et vos résultats académiques depuis une seule interface.
           </p>
           <div class="d-flex flex-wrap gap-3 hero-cta-group">
-            <a href="#demo" class="btn-demo">Demander une démonstration</a>
+            <a href="demo.html" class="btn-demo">Demander une démonstration</a>
             <a href="contact.html" class="btn-connect-hero">Contact</a>
           </div>
         </div>
@@ -959,89 +919,22 @@
     </div>
   </section>
 
-  <!-- ══════════ CONTACT / DEMO FORM ══════════ -->
+  <!-- ══════════ CTA ══════════ -->
   <section class="sp-cta" id="demo">
     <div class="container">
-      <div class="row align-items-center gy-5">
-
-        <!-- Left: pitch -->
-        <div class="col-lg-5">
-          <div class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">
-            <i class="bi bi-send"></i> Nous contacter
-          </div>
-          <h2 class="mb-3">Prêt à transformer votre institution ?</h2>
-          <p class="cta-sub">
-            Remplissez le formulaire et notre équipe vous contactera sous 24 heures pour organiser
-            une démonstration gratuite et personnalisée de Savoir+ LMS.
-          </p>
-          <div class="cta-trust">
-            <div class="cta-trust-item"><i class="bi bi-check-circle-fill"></i> Démonstration gratuite, sans engagement</div>
-            <div class="cta-trust-item"><i class="bi bi-check-circle-fill"></i> Réponse sous 24 heures</div>
-            <div class="cta-trust-item"><i class="bi bi-check-circle-fill"></i> Adapté à votre établissement</div>
-          </div>
+      <div class="text-center">
+        <div class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.3);">
+          <i class="bi bi-rocket-takeoff"></i> Passez à l'action
         </div>
-
-        <!-- Right: form card -->
-        <div class="col-lg-6 offset-lg-1">
-          <div class="contact-card">
-            <h3><i class="bi bi-envelope-fill me-2" style="color:var(--sp-blue);"></i>Demander une démonstration</h3>
-
-            <div id="form-success" class="form-success">
-              <i class="bi bi-check-circle-fill text-success"></i>
-              <p class="fw-700 mb-1" style="font-size:1.1rem;font-weight:700;color:#1A1A2E;">Message envoyé !</p>
-              <p class="text-muted" style="font-size:0.9rem;">Nous vous répondrons dans les 24 heures.</p>
-            </div>
-
-            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-              <input type="hidden" name="access_key" value="c8549524-9351-4fe5-9a8c-99b782085958" />
-              <input type="hidden" name="subject" value="Demande de démonstration — Savoir+ LMS" />
-              <input type="hidden" name="redirect" value="false" />
-
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label class="form-label">Nom complet <span class="text-danger">*</span></label>
-                  <input type="text" name="nom" id="nom" class="form-control" placeholder="Ex. Jean Kabila" />
-                  <div class="field-error" id="nom-error">Ce champ est obligatoire.</div>
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label">Adresse e-mail <span class="text-danger">*</span></label>
-                  <input type="email" name="email" id="email" class="form-control" placeholder="vous@institution.cd" />
-                  <div class="field-error" id="email-error">Veuillez entrer une adresse e-mail valide.</div>
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Institution / Établissement <span class="text-danger">*</span></label>
-                  <input type="text" name="institution" id="institution" class="form-control" placeholder="Ex. Université de Kinshasa" />
-                  <div class="field-error" id="institution-error">Ce champ est obligatoire.</div>
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label">Téléphone</label>
-                  <input type="tel" name="telephone" class="form-control" placeholder="+243 ..." />
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label">Nombre d'étudiants</label>
-                  <select name="taille" class="form-select">
-                    <option value="" disabled selected>Sélectionner</option>
-                    <option>Moins de 500</option>
-                    <option>500 – 2 000</option>
-                    <option>2 000 – 10 000</option>
-                    <option>Plus de 10 000</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label class="form-label">Message <span class="text-danger">*</span></label>
-                  <textarea name="message" id="message" class="form-control" rows="3" placeholder="Décrivez vos besoins ou posez vos questions..."></textarea>
-                  <div class="field-error" id="message-error">Ce champ est obligatoire.</div>
-                </div>
-                <div class="col-12 mt-3">
-                  <button type="submit" class="btn-submit">
-                    <i class="bi bi-send me-2"></i>Envoyer la demande
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+        <h2 class="mb-3">Prêt à transformer votre institution ?</h2>
+        <p class="cta-sub mx-auto" style="max-width:560px;">
+          Voyez Savoir+ LMS en action avec une démonstration gratuite et personnalisée,
+          adaptée aux besoins spécifiques de votre établissement.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="demo.html" class="btn-cta-primary"><i class="bi bi-play-circle me-2"></i>Demander une démonstration</a>
+          <a href="contact.html" class="btn-cta-ghost"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
         </div>
-
       </div>
     </div>
   </section>
@@ -1086,88 +979,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('form-success');
-
-    function validateEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function setError(fieldId, errorId, message) {
-      const field = document.getElementById(fieldId);
-      const error = document.getElementById(errorId);
-      field.classList.add('is-invalid');
-      if (message) error.textContent = message;
-      error.classList.add('visible');
-    }
-
-    function clearError(fieldId, errorId) {
-      const field = document.getElementById(fieldId);
-      const error = document.getElementById(errorId);
-      field.classList.remove('is-invalid');
-      error.classList.remove('visible');
-    }
-
-    function isSuspicious(text) {
-      const htmlTags = /<[^>]*>/i;
-      const scriptPattern = /\b(script|onerror|onload|onclick|javascript|eval|alert|document\.)\b/i;
-      const sqlPattern = /(\bSELECT\b|\bDROP\b|\bINSERT\b|\bDELETE\b|\bUNION\b|--|;)/i;
-      const excessiveUrls = (text.match(/https?:\/\//gi) || []).length > 2;
-      return htmlTags.test(text) || scriptPattern.test(text) || sqlPattern.test(text) || excessiveUrls;
-    }
-
-    // Clear errors on input
-    ['nom', 'email', 'institution', 'message'].forEach(id => {
-      document.getElementById(id).addEventListener('input', () => clearError(id, id + '-error'));
-    });
-
-    function validate() {
-      let valid = true;
-      const nom = document.getElementById('nom').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const institution = document.getElementById('institution').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!nom) { setError('nom', 'nom-error', 'Ce champ est obligatoire.'); valid = false; }
-      else if (isSuspicious(nom)) { setError('nom', 'nom-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
-      else clearError('nom', 'nom-error');
-
-      if (!email) { setError('email', 'email-error', 'Ce champ est obligatoire.'); valid = false; }
-      else if (!validateEmail(email)) { setError('email', 'email-error', 'Veuillez entrer une adresse e-mail valide.'); valid = false; }
-      else clearError('email', 'email-error');
-
-      if (!institution) { setError('institution', 'institution-error', 'Ce champ est obligatoire.'); valid = false; }
-      else if (isSuspicious(institution)) { setError('institution', 'institution-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
-      else clearError('institution', 'institution-error');
-
-      if (!message) { setError('message', 'message-error', 'Ce champ est obligatoire.'); valid = false; }
-      else if (message.length < 10) { setError('message', 'message-error', 'Le message doit contenir au moins 10 caractères.'); valid = false; }
-      else if (isSuspicious(message)) { setError('message', 'message-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
-      else clearError('message', 'message-error');
-
-      return valid;
-    }
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      if (!validate()) return;
-
-      const btn = form.querySelector('.btn-submit');
-      btn.disabled = true;
-      btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Envoi en cours...';
-
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-      const data = await res.json();
-
-      if (data.success) {
-        form.style.display = 'none';
-        success.style.display = 'block';
-      } else {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="bi bi-send me-2"></i>Envoyer la demande';
-        alert('Une erreur est survenue. Veuillez réessayer.');
-      }
-    });
   </script>
 
 </body>

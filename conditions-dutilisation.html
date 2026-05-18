@@ -25,7 +25,7 @@
     body { font-family: 'Inter', sans-serif; color: var(--sp-text); background: #fff; }
 
     /* Navbar */
-    .sp-navbar { background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%); padding: 0.75rem 0; }
+    .sp-navbar { background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%); padding: 1.1rem 0; }
 
     .sp-logo {
       display: inline-flex; align-items: center; gap: 0.55rem;
@@ -44,11 +44,41 @@
     .btn-login:hover { background: #e8f0fe; color: var(--sp-blue-dark); }
 
     .btn-nav-contact {
-      background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.6);
-      border-radius: 8px; padding: 0.45rem 1.1rem; font-weight: 600; font-size: 0.9rem;
-      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
     }
-    .btn-nav-contact:hover { border-color: #fff; background: rgba(255,255,255,0.12); color: #fff; }
+    .btn-nav-contact:hover { color: #fff; }
+
+    .btn-nav-demo {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-demo:hover { color: #fff; }
+
+    .sp-toggler {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 8px; color: #fff;
+      width: 40px; height: 40px; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; cursor: pointer; transition: background 0.2s;
+    }
+    .sp-toggler:hover { background: rgba(255,255,255,0.25); }
+
+    .sp-mobile-menu {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 0.75rem 0 1rem; margin-top: 0.5rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+
+    .sp-mobile-link {
+      color: rgba(255,255,255,0.9); text-decoration: none;
+      padding: 0.6rem 0.75rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      transition: background 0.2s;
+    }
+    .sp-mobile-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
 
     /* Page content */
     .page-header {
@@ -82,12 +112,26 @@
 <body>
 
   <nav class="sp-navbar sticky-top">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="sp-logo">
-        <i class="bi bi-mortarboard-fill"></i>
-        Savoir+&nbsp;<span class="sp-lms">LMS</span>
-      </a>
-      <a href="contact.html" class="btn-nav-contact">Contact</a>
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="sp-logo">
+          <i class="bi bi-mortarboard-fill"></i>
+          Savoir+&nbsp;<span class="sp-lms">LMS</span>
+        </a>
+        <div class="d-none d-md-flex align-items-center gap-3">
+          <a href="demo.html" class="btn-nav-demo">Démonstration</a>
+          <a href="contact.html" class="btn-nav-contact">Contact</a>
+        </div>
+        <button class="sp-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#spNav" aria-controls="spNav" aria-expanded="false" aria-label="Menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="collapse" id="spNav">
+        <div class="sp-mobile-menu">
+          <a href="demo.html" class="sp-mobile-link"><i class="bi bi-play-circle"></i> Démonstration</a>
+          <a href="contact.html" class="sp-mobile-link"><i class="bi bi-envelope"></i> Contact</a>
+        </div>
+      </div>
     </div>
   </nav>
 
