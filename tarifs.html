@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarifs — Savoir+ LMS</title>
+  <meta name="description" content="Découvrez les formules Savoir+ LMS adaptées à la taille de votre institution. Tarifs sur devis, sans engagement. Demandez un devis personnalisé." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <style>
+    :root {
+      --sp-blue:      #1565C0;
+      --sp-blue-dark: #0D47A1;
+      --sp-bg:        #F4F6F9;
+      --sp-text:      #1A1A2E;
+    }
+
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--sp-text); background: #fff; }
+
+    /* ── Navbar ── */
+    .sp-navbar { background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%); padding: 1.1rem 0; }
+
+    .sp-logo {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      color: #fff; text-decoration: none;
+      font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1;
+    }
+    .sp-logo:hover { color: rgba(255,255,255,0.85); }
+    .sp-logo i { font-size: 1.65rem; }
+    .sp-logo .sp-lms { font-size: 0.85rem; font-weight: 500; opacity: 0.8; letter-spacing: 0.05em; margin-top: 5px; }
+
+    .btn-nav-contact {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-contact:hover { color: #fff; }
+
+    .btn-nav-demo {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: color 0.2s;
+    }
+    .btn-nav-demo:hover { color: #fff; }
+
+    .sp-toggler {
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 8px; color: #fff;
+      width: 40px; height: 40px; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.35rem; cursor: pointer; transition: background 0.2s;
+    }
+    .sp-toggler:hover { background: rgba(255,255,255,0.25); }
+
+    .sp-mobile-menu {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding: 0.75rem 0 1rem; margin-top: 0.5rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+
+    .sp-mobile-link {
+      color: rgba(255,255,255,0.9); text-decoration: none;
+      padding: 0.6rem 0.75rem; border-radius: 8px;
+      font-weight: 600; font-size: 0.95rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      transition: background 0.2s;
+    }
+    .sp-mobile-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%);
+      padding: 4rem 0 3rem; color: #fff;
+    }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .page-header p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin: 0; max-width: 560px; line-height: 1.7; }
+    .page-header .breadcrumb-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    .page-header .breadcrumb-item a:hover { color: #fff; }
+    .page-header .breadcrumb-item.active { color: rgba(255,255,255,0.5); }
+    .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+
+    /* ── Shared ── */
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #EBF3FF; color: var(--sp-blue);
+      border: 1px solid #BBDEFB; border-radius: 100px;
+      padding: 0.3rem 1rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+
+    /* ── Pricing section ── */
+    .pricing-section { padding: 5rem 0; }
+
+    .pricing-card {
+      background: #fff; border-radius: 20px; padding: 2.25rem;
+      border: 1.5px solid #e2e9f4; height: 100%;
+      display: flex; flex-direction: column;
+      transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .pricing-card:hover {
+      box-shadow: 0 16px 48px rgba(21,101,192,0.1), 0 4px 12px rgba(0,0,0,0.04);
+      transform: translateY(-4px);
+    }
+    .pricing-card.is-featured {
+      border-color: var(--sp-blue);
+      background: #fff;
+      position: relative;
+      box-shadow: 0 16px 48px rgba(21,101,192,0.14), 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .pricing-card.is-featured:hover { transform: translateY(-6px); }
+
+    .featured-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--sp-blue); color: #fff;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      padding: 0.3rem 1rem; border-radius: 100px; white-space: nowrap;
+    }
+
+    .plan-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; }
+    .plan-title { font-size: 1.4rem; font-weight: 800; color: var(--sp-text); margin-bottom: 0.375rem; letter-spacing: -0.02em; }
+    .plan-audience { font-size: 0.875rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; }
+
+    .plan-price {
+      font-size: 1.1rem; font-weight: 700; color: var(--sp-blue);
+      background: #EBF3FF; border-radius: 10px;
+      padding: 0.75rem 1rem; margin-bottom: 1.75rem; text-align: center;
+    }
+
+    .plan-features { list-style: none; padding: 0; margin: 0 0 1.75rem; flex: 1; }
+    .plan-features li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.9rem; color: #4a5568; line-height: 1.6; padding: 0.4rem 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li i { color: #2E7D32; font-size: 0.9rem; margin-top: 3px; flex-shrink: 0; }
+    .plan-features li.feat-muted i { color: #cbd5e1; }
+    .plan-features li.feat-muted span { color: #94a3b8; }
+
+    .btn-plan {
+      display: block; text-align: center; border-radius: 10px;
+      padding: 0.75rem 1.5rem; font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; transition: background 0.2s, box-shadow 0.2s;
+    }
+    .btn-plan-outline {
+      border: 2px solid var(--sp-blue); color: var(--sp-blue); background: transparent;
+    }
+    .btn-plan-outline:hover { background: #EBF3FF; color: var(--sp-blue-dark); }
+
+    .btn-plan-solid {
+      background: var(--sp-blue); color: #fff; border: 2px solid var(--sp-blue);
+    }
+    .btn-plan-solid:hover { background: var(--sp-blue-dark); border-color: var(--sp-blue-dark); box-shadow: 0 4px 16px rgba(13,71,161,0.3); }
+
+    /* ── Includes strip ── */
+    .includes-section { padding: 3.5rem 0; background: var(--sp-bg); border-top: 1px solid #e2e9f4; border-bottom: 1px solid #e2e9f4; }
+
+    .include-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.9rem; font-weight: 600; color: #4a5568;
+    }
+    .include-item i { color: var(--sp-blue); font-size: 1.1rem; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 5rem 0; }
+
+    .faq-item {
+      border: 1.5px solid #e2e9f4; border-radius: 14px;
+      overflow: hidden; margin-bottom: 0.75rem;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: #BBDEFB; }
+
+    .faq-question {
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 1.125rem 1.375rem; font-size: 0.97rem; font-weight: 700;
+      color: var(--sp-text); cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      transition: background 0.2s;
+    }
+    .faq-question:hover { background: var(--sp-bg); }
+    .faq-question[aria-expanded="true"] { background: var(--sp-bg); color: var(--sp-blue); }
+
+    .faq-question .faq-icon { font-size: 1.1rem; flex-shrink: 0; transition: transform 0.25s; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer { padding: 0 1.375rem 1.125rem; font-size: 0.92rem; color: #4a5568; line-height: 1.8; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%);
+      padding: 5rem 0; color: #fff; text-align: center;
+    }
+    .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .cta-section p  { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    .btn-cta-primary {
+      background: #fff; color: var(--sp-blue); border: none; border-radius: 10px;
+      padding: 0.85rem 2rem; font-weight: 700; font-size: 1rem;
+      text-decoration: none; transition: background 0.2s, box-shadow 0.2s;
+      display: inline-flex; align-items: center;
+    }
+    .btn-cta-primary:hover { background: #e8f0fe; color: var(--sp-blue-dark); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+
+    .btn-cta-ghost {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.6); border-radius: 10px;
+      padding: 0.85rem 2rem; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+      display: inline-flex; align-items: center;
+    }
+    .btn-cta-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ── Scroll to top ── */
+    .scroll-top {
+      position: fixed; bottom: 1.75rem; right: 1.75rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--sp-blue); color: #fff; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(21,101,192,0.35);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+      z-index: 999;
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-top:hover { background: var(--sp-blue-dark); }
+
+    /* ── Footer ── */
+    .sp-footer { background: var(--sp-text); color: rgba(255,255,255,0.6); padding: 2rem 0; font-size: 0.875rem; }
+    .sp-footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .sp-footer a:hover { color: #fff; }
+    .social-links { display: flex; gap: 0.5rem; }
+    .social-btn { width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:background 0.2s,color 0.2s; }
+    .social-btn:hover { background:rgba(255,255,255,0.18); color:#fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 767px) {
+      .sp-footer .container > div { flex-direction: column !important; text-align: center; gap: 1rem !important; }
+      .social-links { justify-content: center; }
+      .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
+      .pricing-card { margin-top: 1rem; }
+    }
+
+    @media (max-width: 576px) {
+      .pricing-section, .faq-section, .cta-section { padding: 3rem 0; }
+      .includes-section { padding: 2rem 0; }
+      .sp-logo { font-size: 1.2rem; }
+      .sp-logo i { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="sp-navbar sticky-top">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="sp-logo">
+          <i class="bi bi-mortarboard-fill"></i>
+          Savoir+&nbsp;<span class="sp-lms">LMS</span>
+        </a>
+        <div class="d-none d-md-flex align-items-center gap-3">
+          <a href="a-propos.html" class="btn-nav-demo">À propos</a>
+          <a href="demo.html" class="btn-nav-demo">Démonstration</a>
+          <a href="tarifs.html" class="btn-nav-demo">Tarifs</a>
+          <a href="contact.html" class="btn-nav-contact">Contact</a>
+        </div>
+        <button class="sp-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#spNav" aria-controls="spNav" aria-expanded="false" aria-label="Menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="collapse" id="spNav">
+        <div class="sp-mobile-menu">
+          <a href="a-propos.html" class="sp-mobile-link"><i class="bi bi-info-circle"></i> À propos</a>
+          <a href="demo.html" class="sp-mobile-link"><i class="bi bi-play-circle"></i> Démonstration</a>
+          <a href="tarifs.html" class="sp-mobile-link"><i class="bi bi-tags"></i> Tarifs</a>
+          <a href="contact.html" class="sp-mobile-link"><i class="bi bi-envelope"></i> Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════ PAGE HEADER ══════════ -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb" style="font-size:0.85rem;">
+          <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+          <li class="breadcrumb-item active">Tarifs</li>
+        </ol>
+      </nav>
+      <h1>Des formules adaptées à votre institution</h1>
+      <p>Chaque institution est unique. Nos tarifs sont établis sur devis, en fonction de votre
+      taille et de vos besoins. Contactez-nous pour obtenir une proposition personnalisée.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ PRICING CARDS ══════════ -->
+  <section class="pricing-section">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <div class="section-badge"><i class="bi bi-tags"></i> Nos formules</div>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.5rem;">
+          Choisissez la formule qui vous correspond
+        </h2>
+        <p style="color:#64748b;font-size:0.97rem;max-width:500px;margin:0 auto;line-height:1.7;">
+          Toutes les formules incluent un accompagnement à la mise en place et un support dédié.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-stretch justify-content-center">
+
+        <!-- Essentiel -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card">
+            <div class="plan-name">Formule</div>
+            <div class="plan-title">Essentiel</div>
+            <p class="plan-audience">Idéal pour les petits instituts supérieurs et les établissements qui débutent leur transition numérique.</p>
+            <div class="plan-price">
+              <i class="bi bi-chat-dots me-1"></i> Tarif sur devis
+            </div>
+            <ul class="plan-features">
+              <li><i class="bi bi-check-circle-fill"></i><span>Gestion des étudiants et dossiers</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Cours et ressources pédagogiques</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Suivi des présences</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Évaluations et notes</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Messagerie interne</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Jusqu'à 500 étudiants</span></li>
+              <li class="feat-muted"><i class="bi bi-x-circle-fill"></i><span>Délibérations avancées</span></li>
+              <li class="feat-muted"><i class="bi bi-x-circle-fill"></i><span>Sessions en direct</span></li>
+              <li class="feat-muted"><i class="bi bi-x-circle-fill"></i><span>Gestion des paiements</span></li>
+            </ul>
+            <a href="contact.html" class="btn-plan btn-plan-outline">Demander un devis</a>
+          </div>
+        </div>
+
+        <!-- Professionnel (featured) -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card is-featured">
+            <div class="featured-badge">Le plus populaire</div>
+            <div class="plan-name">Formule</div>
+            <div class="plan-title">Professionnel</div>
+            <p class="plan-audience">Pour les universités et instituts de taille moyenne qui veulent une gestion complète de leur activité académique.</p>
+            <div class="plan-price">
+              <i class="bi bi-chat-dots me-1"></i> Tarif sur devis
+            </div>
+            <ul class="plan-features">
+              <li><i class="bi bi-check-circle-fill"></i><span>Tout ce qui est inclus dans Essentiel</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Délibérations et procès-verbaux</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Sessions en direct (cours vidéo)</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Gestion des paiements et scolarités</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Calendrier académique</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Forums de discussion</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Tableaux de bord avancés</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Jusqu'à 5 000 étudiants</span></li>
+              <li class="feat-muted"><i class="bi bi-x-circle-fill"></i><span>Intégrations personnalisées</span></li>
+            </ul>
+            <a href="demo.html" class="btn-plan btn-plan-solid">Voir la démonstration</a>
+          </div>
+        </div>
+
+        <!-- Entreprise -->
+        <div class="col-md-6 col-lg-4">
+          <div class="pricing-card">
+            <div class="plan-name">Formule</div>
+            <div class="plan-title">Entreprise</div>
+            <p class="plan-audience">Pour les grandes universités multi-facultés avec des besoins spécifiques et un volume important d'étudiants.</p>
+            <div class="plan-price">
+              <i class="bi bi-chat-dots me-1"></i> Tarif sur devis
+            </div>
+            <ul class="plan-features">
+              <li><i class="bi bi-check-circle-fill"></i><span>Tout ce qui est inclus dans Professionnel</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Étudiants illimités</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Intégrations et personnalisations</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Gestion multi-facultés et filières</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Rapports et exports avancés</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>SLA et support prioritaire</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Formation sur site disponible</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Gestionnaire de compte dédié</span></li>
+              <li><i class="bi bi-check-circle-fill"></i><span>Conditions contractuelles flexibles</span></li>
+            </ul>
+            <a href="contact.html" class="btn-plan btn-plan-outline">Nous contacter</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ INCLUDED IN ALL PLANS ══════════ -->
+  <div class="includes-section">
+    <div class="container">
+      <p class="text-center text-muted mb-4" style="font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;">Inclus dans toutes les formules</p>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="include-item"><i class="bi bi-cloud-check"></i> Hébergement inclus</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="include-item"><i class="bi bi-shield-lock"></i> SSL &amp; sécurité</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="include-item"><i class="bi bi-headset"></i> Support technique</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="include-item"><i class="bi bi-arrow-up-circle"></i> Mises à jour</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="include-item"><i class="bi bi-mortarboard"></i> Formation initiale</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ FAQ ══════════ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-badge"><i class="bi bi-question-circle"></i> FAQ</div>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-0.03em;">Questions fréquentes</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+          <div class="faq-item">
+            <button class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false">
+              Pourquoi les tarifs ne sont-ils pas affichés ?
+              <i class="bi bi-plus faq-icon"></i>
+            </button>
+            <div id="faq1" class="collapse">
+              <div class="faq-answer">
+                Chaque institution a des besoins différents en termes de nombre d'étudiants, de modules
+                souhaités et d'accompagnement. Nous préférons vous proposer un tarif juste et adapté
+                à votre situation réelle, plutôt qu'un prix catalogue qui ne vous correspondrait pas.
+                Contactez-nous pour recevoir une proposition personnalisée sous 24 heures.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">
+              Y a-t-il une période d'essai gratuite ?
+              <i class="bi bi-plus faq-icon"></i>
+            </button>
+            <div id="faq2" class="collapse">
+              <div class="faq-answer">
+                Oui. Nous proposons une démonstration gratuite et personnalisée de la plateforme avant
+                tout engagement. Vous pouvez ainsi voir Savoir+ LMS en action avec vos propres données
+                de test et poser toutes vos questions à notre équipe.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">
+              Quels sont les modes de paiement acceptés ?
+              <i class="bi bi-plus faq-icon"></i>
+            </button>
+            <div id="faq3" class="collapse">
+              <div class="faq-answer">
+                Nous acceptons les paiements par virement bancaire et par Mobile Money. Des conditions
+                de paiement échelonné peuvent être envisagées selon votre situation. Ces détails sont
+                discutés lors de la négociation du contrat.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">
+              Quelle est la durée minimale d'engagement ?
+              <i class="bi bi-plus faq-icon"></i>
+            </button>
+            <div id="faq4" class="collapse">
+              <div class="faq-answer">
+                Nos contrats sont généralement établis à l'année académique. Des engagements pluriannuels
+                sont possibles et donnent lieu à des conditions tarifaires préférentielles. Nous n'imposons
+                aucun engagement avant la signature du contrat.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">
+              La migration de nos données existantes est-elle incluse ?
+              <i class="bi bi-plus faq-icon"></i>
+            </button>
+            <div id="faq5" class="collapse">
+              <div class="faq-answer">
+                Oui. Notre équipe vous accompagne dans l'import de vos données existantes (listes
+                d'étudiants, filières, historique académique) lors de la mise en place initiale.
+                Cet accompagnement est inclus dans toutes les formules.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false">
+              Que se passe-t-il si notre nombre d'étudiants augmente ?
+              <i class="bi bi-plus faq-icon"></i>
+            </button>
+            <div id="faq6" class="collapse">
+              <div class="faq-answer">
+                Aucun problème. Vous pouvez passer à une formule supérieure à tout moment. Nous
+                ajustons simplement votre abonnement en cours d'année en calculant la différence
+                au prorata de la période restante.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Vous avez des questions sur nos tarifs ?</h2>
+      <p>Notre équipe vous répondra dans les 24 heures avec une proposition adaptée à votre institution.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="demo.html" class="btn-cta-primary"><i class="bi bi-play-circle me-2"></i>Demander une démonstration</a>
+        <a href="contact.html" class="btn-cta-ghost"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="sp-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+        <span>&copy; 2026 Savoir+. Tous droits réservés.</span>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+        <div class="d-flex flex-column align-items-center align-items-sm-end gap-2">
+          <div class="d-flex gap-3">
+            <a href="a-propos.html">À propos</a>
+            <a href="tarifs.html">Tarifs</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="d-flex gap-3">
+            <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+            <a href="conditions-dutilisation.html">Conditions d'utilisation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" title="Retour en haut">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+</body>
+</html>
