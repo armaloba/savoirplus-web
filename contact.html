@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contactez-nous — Savoir+ LMS</title>
+  <meta name="description" content="Contactez l'équipe Savoir+ LMS pour une démonstration gratuite, une question sur la plateforme ou toute autre demande. Nous répondons sous 24 heures." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <style>
+    :root {
+      --sp-blue:      #1565C0;
+      --sp-blue-dark: #0D47A1;
+      --sp-bg:        #F4F6F9;
+      --sp-text:      #1A1A2E;
+    }
+
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--sp-text); background: #fff; }
+
+    /* ── Navbar ── */
+    .sp-navbar { background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%); padding: 0.75rem 0; }
+
+    .sp-logo {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      color: #fff; text-decoration: none;
+      font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1;
+    }
+    .sp-logo:hover { color: rgba(255,255,255,0.85); }
+    .sp-logo i { font-size: 1.65rem; }
+    .sp-logo .sp-lms { font-size: 0.85rem; font-weight: 500; opacity: 0.8; letter-spacing: 0.05em; margin-top: 5px; }
+
+    .btn-nav-contact {
+      background: rgba(255,255,255,0.18); color: #fff;
+      border: 2px solid rgba(255,255,255,0.9);
+      border-radius: 8px; padding: 0.45rem 1.1rem; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-nav-contact:hover { background: rgba(255,255,255,0.28); color: #fff; }
+
+    /* ── Page header ── */
+    .page-header {
+      background: var(--sp-bg);
+      border-bottom: 1px solid #e2e9f4;
+      padding: 3.5rem 0 2.5rem;
+    }
+    .page-header h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -0.03em; }
+    .page-header p { color: #64748b; font-size: 1rem; margin: 0; }
+
+    /* ── Contact layout ── */
+    .contact-section { padding: 5rem 0 6rem; }
+
+    /* Info cards */
+    .info-card {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--sp-bg); border: 1px solid #e2e9f4;
+      border-radius: 14px; padding: 1.25rem 1.5rem;
+      transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .info-card:hover { box-shadow: 0 6px 20px rgba(21,101,192,0.08); border-color: #BBDEFB; }
+
+    .info-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: #EBF3FF; color: var(--sp-blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+
+    .info-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 0.2rem; }
+    .info-value { font-size: 0.97rem; font-weight: 600; color: var(--sp-text); }
+    .info-value a { color: var(--sp-blue); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+    .info-sub { font-size: 0.83rem; color: #64748b; margin-top: 0.1rem; }
+
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #EBF3FF; color: var(--sp-blue);
+      border: 1px solid #BBDEFB; border-radius: 100px;
+      padding: 0.3rem 1rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+
+    .trust-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .trust-list li { display: flex; align-items: center; gap: 0.55rem; font-size: 0.92rem; color: #4a5568; }
+    .trust-list li i { color: var(--sp-blue); font-size: 1rem; flex-shrink: 0; }
+
+    /* ── Form card ── */
+    .contact-card {
+      background: #fff; border-radius: 20px; padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(21,101,192,0.10), 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #e2e9f4;
+    }
+
+    .contact-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--sp-text); margin-bottom: 1.5rem; }
+
+    .contact-card .form-label { font-size: 0.85rem; font-weight: 600; color: var(--sp-text); margin-bottom: 0.35rem; }
+
+    .contact-card .form-control,
+    .contact-card .form-select {
+      border: 1.5px solid #dce5f3; border-radius: 10px;
+      padding: 0.65rem 0.9rem; font-size: 0.92rem; color: var(--sp-text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-card .form-control:focus,
+    .contact-card .form-select:focus {
+      border-color: var(--sp-blue);
+      box-shadow: 0 0 0 3px rgba(21,101,192,0.12);
+    }
+    .contact-card textarea.form-control { resize: none; min-height: 120px; }
+
+    .contact-card .form-control.is-invalid,
+    .contact-card .form-select.is-invalid { border-color: #dc3545; box-shadow: none; }
+    .contact-card .form-control.is-invalid:focus { border-color: #dc3545; box-shadow: 0 0 0 3px rgba(220,53,69,0.15); }
+
+    .field-error { font-size: 0.8rem; color: #dc3545; margin-top: 0.3rem; display: none; }
+    .field-error.visible { display: block; }
+
+    .btn-submit {
+      background: var(--sp-blue); color: #fff; border: none; border-radius: 10px;
+      padding: 0.75rem 1.5rem; font-weight: 700; font-size: 1rem;
+      width: 100%; transition: background 0.2s, box-shadow 0.2s;
+    }
+    .btn-submit:hover { background: var(--sp-blue-dark); box-shadow: 0 4px 16px rgba(13,71,161,0.3); }
+    .btn-submit:disabled { opacity: 0.75; cursor: not-allowed; }
+
+    .form-success {
+      display: none; text-align: center; padding: 2.5rem 1rem;
+    }
+    .form-success .success-icon {
+      width: 64px; height: 64px; border-radius: 50%; background: #E8F5E9;
+      color: #2E7D32; font-size: 1.75rem;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+    }
+
+    /* ── Scroll to top ── */
+    .scroll-top {
+      position: fixed; bottom: 1.75rem; right: 1.75rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--sp-blue); color: #fff; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(21,101,192,0.35);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+      z-index: 999;
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-top:hover { background: var(--sp-blue-dark); }
+
+    /* ── Footer ── */
+    .sp-footer { background: var(--sp-text); color: rgba(255,255,255,0.6); padding: 2rem 0; font-size: 0.875rem; }
+    .sp-footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .sp-footer a:hover { color: #fff; }
+    .social-links { display: flex; gap: 0.5rem; }
+    .social-btn { width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:background 0.2s,color 0.2s; }
+    .social-btn:hover { background:rgba(255,255,255,0.18); color:#fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 767px) {
+      .contact-card { padding: 1.5rem; }
+      .sp-footer .container > div { flex-direction: column !important; text-align: center; gap: 1rem !important; }
+      .social-links { justify-content: center; }
+      .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
+    }
+
+    @media (max-width: 576px) {
+      .contact-section { padding: 3rem 0 4rem; }
+      .contact-card { padding: 1.25rem; border-radius: 14px; }
+      .contact-card h3 { font-size: 1rem; }
+      .sp-logo { font-size: 1.2rem; }
+      .sp-logo i { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════ NAVBAR ══════════ -->
+  <nav class="sp-navbar sticky-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="sp-logo">
+        <i class="bi bi-mortarboard-fill"></i>
+        Savoir+&nbsp;<span class="sp-lms">LMS</span>
+      </a>
+      <a href="contact.html" class="btn-nav-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ══════════ PAGE HEADER ══════════ -->
+  <div class="page-header">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb" style="font-size:0.85rem;">
+          <li class="breadcrumb-item"><a href="index.html" style="color:var(--sp-blue);text-decoration:none;">Accueil</a></li>
+          <li class="breadcrumb-item active">Contact</li>
+        </ol>
+      </nav>
+      <h1>Contactez-nous</h1>
+      <p>Notre équipe vous répondra dans les 24 heures, du lundi au vendredi.</p>
+    </div>
+  </div>
+
+  <!-- ══════════ CONTACT SECTION ══════════ -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row gy-5 align-items-start">
+
+        <!-- Left: info + trust signals -->
+        <div class="col-lg-4">
+          <div class="section-badge"><i class="bi bi-send"></i> Nous contacter</div>
+          <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.75rem;">
+            Parlons de votre institution
+          </h2>
+          <p style="color:#64748b;font-size:0.97rem;line-height:1.75;margin-bottom:2rem;">
+            Remplissez le formulaire pour demander une démonstration gratuite, poser une question
+            ou nous parler de vos besoins. Nous vous répondrons rapidement.
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+
+            <div class="info-card">
+              <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <div class="info-label">E-mail</div>
+                <div class="info-value"><a href="mailto:contact@savoirpluslms.com">contact@savoirpluslms.com</a></div>
+                <div class="info-sub">Pour toute demande générale</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <div class="info-label">Délai de réponse</div>
+                <div class="info-value">Sous 24 heures</div>
+                <div class="info-sub">Du lundi au vendredi</div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="info-label">Localisation</div>
+                <div class="info-value">République Démocratique du Congo</div>
+                <div class="info-sub">Service disponible à l'échelle nationale</div>
+              </div>
+            </div>
+
+          </div>
+
+          <ul class="trust-list">
+            <li><i class="bi bi-check-circle-fill"></i> Démonstration gratuite, sans engagement</li>
+            <li><i class="bi bi-check-circle-fill"></i> Adapté à la taille de votre institution</li>
+            <li><i class="bi bi-check-circle-fill"></i> Accompagnement personnalisé à la mise en place</li>
+          </ul>
+        </div>
+
+        <!-- Right: form card -->
+        <div class="col-lg-7 offset-lg-1">
+          <div class="contact-card">
+            <h3><i class="bi bi-envelope-fill me-2" style="color:var(--sp-blue);"></i>Envoyez-nous un message</h3>
+
+            <div id="form-success" class="form-success">
+              <div class="success-icon"><i class="bi bi-check-lg"></i></div>
+              <p style="font-size:1.15rem;font-weight:700;color:var(--sp-text);margin-bottom:0.4rem;">Message envoyé !</p>
+              <p style="font-size:0.9rem;color:#64748b;margin:0;">Merci de nous avoir contactés. Nous vous répondrons dans les 24 heures.</p>
+            </div>
+
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+              <input type="hidden" name="access_key" value="c8549524-9351-4fe5-9a8c-99b782085958" />
+              <input type="hidden" name="subject" value="Nouveau message de contact — Savoir+ LMS" />
+              <input type="hidden" name="redirect" value="false" />
+
+              <div class="row g-3">
+
+                <div class="col-sm-6">
+                  <label class="form-label" for="nom">Nom complet <span class="text-danger">*</span></label>
+                  <input type="text" name="nom" id="nom" class="form-control" placeholder="Ex. Jean Kabila" />
+                  <div class="field-error" id="nom-error">Ce champ est obligatoire.</div>
+                </div>
+
+                <div class="col-sm-6">
+                  <label class="form-label" for="email">Adresse e-mail <span class="text-danger">*</span></label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="vous@institution.cd" />
+                  <div class="field-error" id="email-error">Veuillez entrer une adresse e-mail valide.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="institution">Institution / Établissement <span class="text-danger">*</span></label>
+                  <input type="text" name="institution" id="institution" class="form-control" placeholder="Ex. Université de Kinshasa" />
+                  <div class="field-error" id="institution-error">Ce champ est obligatoire.</div>
+                </div>
+
+                <div class="col-sm-6">
+                  <label class="form-label" for="telephone">Téléphone</label>
+                  <input type="tel" name="telephone" id="telephone" class="form-control" placeholder="+243 ..." />
+                </div>
+
+                <div class="col-sm-6">
+                  <label class="form-label" for="taille">Nombre d'étudiants</label>
+                  <select name="taille" id="taille" class="form-select">
+                    <option value="" disabled selected>Sélectionner</option>
+                    <option>Moins de 500</option>
+                    <option>500 – 2 000</option>
+                    <option>2 000 – 10 000</option>
+                    <option>Plus de 10 000</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="sujet">Objet de votre message <span class="text-danger">*</span></label>
+                  <select name="objet" id="sujet" class="form-select">
+                    <option value="" disabled selected>Sélectionner</option>
+                    <option value="Demande de démonstration">Demande de démonstration</option>
+                    <option value="Question sur la plateforme">Question sur la plateforme</option>
+                    <option value="Demande de tarification">Demande de tarification</option>
+                    <option value="Partenariat">Partenariat</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                  <div class="field-error" id="sujet-error">Veuillez sélectionner un objet.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="message">Message <span class="text-danger">*</span></label>
+                  <textarea name="message" id="message" class="form-control" rows="4" placeholder="Décrivez vos besoins ou posez vos questions..."></textarea>
+                  <div class="field-error" id="message-error">Ce champ est obligatoire.</div>
+                </div>
+
+                <div class="col-12 mt-4">
+                  <button type="submit" class="btn-submit">
+                    <i class="bi bi-send me-2"></i>Envoyer le message
+                  </button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="sp-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+        <span>&copy; 2026 Savoir+. Tous droits réservés.</span>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+        <div class="d-flex gap-3">
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+          <a href="conditions-dutilisation.html">Conditions d'utilisation</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" title="Retour en haut">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Scroll to top
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function setError(fieldId, errorId, message) {
+      const field = document.getElementById(fieldId);
+      const error = document.getElementById(errorId);
+      field.classList.add('is-invalid');
+      if (message) error.textContent = message;
+      error.classList.add('visible');
+    }
+
+    function clearError(fieldId, errorId) {
+      document.getElementById(fieldId).classList.remove('is-invalid');
+      document.getElementById(errorId).classList.remove('visible');
+    }
+
+    function isSuspicious(text) {
+      const htmlTags     = /<[^>]*>/i;
+      const scriptPattern = /\b(script|onerror|onload|onclick|javascript|eval|alert|document\.)\b/i;
+      const sqlPattern   = /(\bSELECT\b|\bDROP\b|\bINSERT\b|\bDELETE\b|\bUNION\b|--|;)/i;
+      const excessiveUrls = (text.match(/https?:\/\//gi) || []).length > 2;
+      return htmlTags.test(text) || scriptPattern.test(text) || sqlPattern.test(text) || excessiveUrls;
+    }
+
+    // Clear errors on input
+    ['nom', 'email', 'institution', 'message'].forEach(id => {
+      document.getElementById(id).addEventListener('input', () => clearError(id, id + '-error'));
+    });
+    document.getElementById('sujet').addEventListener('change', () => clearError('sujet', 'sujet-error'));
+
+    function validate() {
+      let valid = true;
+      const nom        = document.getElementById('nom').value.trim();
+      const email      = document.getElementById('email').value.trim();
+      const institution = document.getElementById('institution').value.trim();
+      const sujet      = document.getElementById('sujet').value;
+      const message    = document.getElementById('message').value.trim();
+
+      if (!nom)
+        { setError('nom', 'nom-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (isSuspicious(nom))
+        { setError('nom', 'nom-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
+      else clearError('nom', 'nom-error');
+
+      if (!email)
+        { setError('email', 'email-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (!validateEmail(email))
+        { setError('email', 'email-error', 'Veuillez entrer une adresse e-mail valide.'); valid = false; }
+      else clearError('email', 'email-error');
+
+      if (!institution)
+        { setError('institution', 'institution-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (isSuspicious(institution))
+        { setError('institution', 'institution-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
+      else clearError('institution', 'institution-error');
+
+      if (!sujet)
+        { setError('sujet', 'sujet-error', 'Veuillez sélectionner un objet.'); valid = false; }
+      else clearError('sujet', 'sujet-error');
+
+      if (!message)
+        { setError('message', 'message-error', 'Ce champ est obligatoire.'); valid = false; }
+      else if (message.length < 10)
+        { setError('message', 'message-error', 'Le message doit contenir au moins 10 caractères.'); valid = false; }
+      else if (isSuspicious(message))
+        { setError('message', 'message-error', 'Ce champ contient du contenu non autorisé.'); valid = false; }
+      else clearError('message', 'message-error');
+
+      return valid;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const btn = form.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Envoi en cours...';
+
+      try {
+        const res  = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const data = await res.json();
+
+        if (data.success) {
+          form.style.display = 'none';
+          success.style.display = 'block';
+        } else {
+          throw new Error('submission failed');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-send me-2"></i>Envoyer le message';
+        alert('Une erreur est survenue. Veuillez réessayer ou nous écrire directement à contact@savoirpluslms.com');
+      }
+    });
+  </script>
+
+</body>
+</html>
