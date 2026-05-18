@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L'enseignement supérieur en RDC face au défi du numérique — Savoir+ LMS</title>
+  <meta name="description" content="La transformation numérique de l'enseignement supérieur en RDC est en marche. Quels sont les enjeux, les freins et les opportunités pour les institutions qui veulent franchir le pas ?" />
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" />
+
+  <style>
+    :root { --sp-blue: #1565C0; --sp-blue-dark: #0D47A1; --sp-bg: #F4F6F9; --sp-text: #1A1A2E; }
+    * { box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; color: var(--sp-text); background: #fff; }
+
+    .sp-navbar { background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #2196F3 100%); padding: 1.1rem 0; }
+    .sp-logo { display: inline-flex; align-items: center; gap: 0.55rem; color: #fff; text-decoration: none; font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+    .sp-logo:hover { color: rgba(255,255,255,0.85); }
+    .sp-logo i { font-size: 1.65rem; }
+    .sp-logo .sp-lms { font-size: 0.85rem; font-weight: 500; opacity: 0.8; letter-spacing: 0.05em; margin-top: 5px; }
+    .btn-nav-contact { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
+    .btn-nav-contact:hover { color: #fff; }
+    .btn-nav-demo { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
+    .btn-nav-demo:hover { color: #fff; }
+    .sp-toggler { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.6); border-radius: 8px; color: #fff; width: 40px; height: 40px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 1.35rem; cursor: pointer; transition: background 0.2s; }
+    .sp-toggler:hover { background: rgba(255,255,255,0.25); }
+    .sp-mobile-menu { border-top: 1px solid rgba(255,255,255,0.15); padding: 0.75rem 0 1rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
+    .sp-mobile-link { color: rgba(255,255,255,0.9); text-decoration: none; padding: 0.6rem 0.75rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.6rem; transition: background 0.2s; }
+    .sp-mobile-link:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    .article-header { background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%); padding: 4rem 0 3rem; color: #fff; }
+    .article-header .breadcrumb-item a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    .article-header .breadcrumb-item a:hover { color: #fff; }
+    .article-header .breadcrumb-item.active { color: rgba(255,255,255,0.5); }
+    .article-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
+    .article-category { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 100px; padding: 0.25rem 0.875rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 1rem; }
+    .article-header h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1.25rem; max-width: 720px; }
+    .article-meta { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; font-size: 0.875rem; color: rgba(255,255,255,0.75); }
+    .article-meta i { margin-right: 0.3rem; }
+
+    .article-body { padding: 4rem 0 5rem; }
+    .article-content { font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.85; color: #374151; }
+    .article-content p { margin-bottom: 1.5rem; }
+    .article-content h2 { font-family: 'Inter', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--sp-text); letter-spacing: -0.02em; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #e2e9f4; }
+    .article-content ul { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content strong { font-weight: 700; color: var(--sp-text); }
+    .article-highlight { background: #EBF3FF; border-left: 4px solid var(--sp-blue); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 2rem 0; font-family: 'Inter', sans-serif; font-size: 0.97rem; color: #1e3a5f; line-height: 1.75; }
+    .article-highlight i { color: var(--sp-blue); margin-right: 0.4rem; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--sp-blue); font-weight: 600; font-size: 0.88rem; text-decoration: none; margin-bottom: 2.5rem; transition: gap 0.2s; }
+    .back-link:hover { color: var(--sp-blue-dark); gap: 0.6rem; }
+
+    .cta-section { background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%); padding: 5rem 0; color: #fff; text-align: center; }
+    .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .btn-cta-primary { background: #fff; color: var(--sp-blue); border: none; border-radius: 10px; padding: 0.85rem 2rem; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; }
+    .btn-cta-primary:hover { background: #e8f0fe; color: var(--sp-blue-dark); box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+    .btn-cta-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.6); border-radius: 10px; padding: 0.85rem 2rem; font-weight: 600; font-size: 1rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-flex; align-items: center; }
+    .btn-cta-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
+
+    .scroll-top { position: fixed; bottom: 1.75rem; right: 1.75rem; width: 44px; height: 44px; border-radius: 50%; background: var(--sp-blue); color: #fff; border: none; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 16px rgba(21,101,192,0.35); opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s; z-index: 999; }
+    .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-top:hover { background: var(--sp-blue-dark); }
+
+    .sp-footer { background: var(--sp-text); color: rgba(255,255,255,0.6); padding: 2rem 0; font-size: 0.875rem; }
+    .sp-footer a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .sp-footer a:hover { color: #fff; }
+    .social-links { display: flex; gap: 0.5rem; }
+    .social-btn { width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:background 0.2s,color 0.2s; }
+    .social-btn:hover { background:rgba(255,255,255,0.18); color:#fff; }
+
+    @media (max-width: 767px) {
+      .sp-footer .container > div { flex-direction: column !important; text-align: center; gap: 1rem !important; }
+      .social-links { justify-content: center; }
+      .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
+    }
+    @media (max-width: 576px) {
+      .article-body { padding: 2.5rem 0 3rem; }
+      .cta-section { padding: 3rem 0; }
+      .article-content { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="sp-navbar sticky-top">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="../index.html" class="sp-logo">
+          <i class="bi bi-mortarboard-fill"></i>
+          Savoir+&nbsp;<span class="sp-lms">LMS</span>
+        </a>
+        <div class="d-none d-md-flex align-items-center gap-3">
+          <a href="../a-propos.html" class="btn-nav-demo">À propos</a>
+          <a href="../demo.html" class="btn-nav-demo">Démonstration</a>
+          <a href="../tarifs.html" class="btn-nav-demo">Tarifs</a>
+          <a href="../blog.html" class="btn-nav-demo">Blog</a>
+          <a href="../contact.html" class="btn-nav-contact">Contact</a>
+        </div>
+        <button class="sp-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#spNav" aria-controls="spNav" aria-expanded="false" aria-label="Menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+      <div class="collapse" id="spNav">
+        <div class="sp-mobile-menu">
+          <a href="../a-propos.html" class="sp-mobile-link"><i class="bi bi-info-circle"></i> À propos</a>
+          <a href="../demo.html" class="sp-mobile-link"><i class="bi bi-play-circle"></i> Démonstration</a>
+          <a href="../tarifs.html" class="sp-mobile-link"><i class="bi bi-tags"></i> Tarifs</a>
+          <a href="../blog.html" class="sp-mobile-link"><i class="bi bi-newspaper"></i> Blog</a>
+          <a href="../contact.html" class="sp-mobile-link"><i class="bi bi-envelope"></i> Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="article-header">
+    <div class="container">
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb" style="font-size:0.85rem;">
+          <li class="breadcrumb-item"><a href="../index.html">Accueil</a></li>
+          <li class="breadcrumb-item"><a href="../blog.html">Blog</a></li>
+          <li class="breadcrumb-item active">L'enseignement supérieur en RDC face au défi du numérique</li>
+        </ol>
+      </nav>
+      <span class="article-category">Numérique en RDC</span>
+      <h1>L'enseignement supérieur en RDC face au défi du numérique</h1>
+      <div class="article-meta">
+        <span><i class="bi bi-calendar3"></i>4 mai 2026</span>
+        <span><i class="bi bi-clock"></i>3 min de lecture</span>
+        <span><i class="bi bi-person"></i>Équipe Savoir+</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+          <a href="../blog.html" class="back-link">
+            <i class="bi bi-arrow-left"></i> Retour au blog
+          </a>
+
+          <div class="article-content">
+
+            <p>Avec plus de 600 institutions d'enseignement supérieur réparties sur l'ensemble
+            du territoire, la République Démocratique du Congo dispose d'un tissu universitaire
+            dense et en pleine croissance. Pourtant, la majorité de ces établissements fonctionnent
+            encore avec des outils analogiques qui freinent leur développement et nuisent à la
+            qualité de l'expérience académique.</p>
+
+            <p>La transformation numérique n'est plus un luxe réservé aux grandes universités
+            des pays développés. Elle est désormais une nécessité pour toute institution qui
+            souhaite rester pertinente et compétitive.</p>
+
+            <h2>Un contexte en mutation rapide</h2>
+
+            <p>La pénétration du mobile en RDC a connu une croissance spectaculaire au cours
+            de la dernière décennie. Aujourd'hui, une large proportion des étudiants possède
+            un smartphone et accède quotidiennement à internet, notamment via les réseaux
+            mobiles. Cette réalité crée une attente naturelle : celle de pouvoir interagir
+            avec leur université de la même façon qu'ils interagissent avec le reste du monde
+            numérique.</p>
+
+            <p>En parallèle, les familles et les employeurs accordent une importance croissante
+            à la rigueur et à la transparence des processus académiques. Les résultats publiés
+            avec retard, les bulletins introuvables ou les relevés de notes non standardisés
+            sont de moins en moins acceptables.</p>
+
+            <h2>Les freins spécifiques à la RDC</h2>
+
+            <p>La transition numérique des institutions congolaises fait face à plusieurs défis
+            concrets :</p>
+            <ul>
+              <li><strong>La connectivité variable</strong> selon les régions, qui impose de
+              concevoir des solutions fonctionnant avec des connexions limitées</li>
+              <li><strong>La résistance au changement</strong> d'une partie du corps enseignant
+              et administratif, souvent liée à un manque de formation</li>
+              <li><strong>Les contraintes budgétaires</strong> qui orientent vers des solutions
+              à coût maîtrisé et à retour sur investissement rapide</li>
+              <li><strong>L'absence de standards communs</strong> entre les institutions, qui
+              complique les transferts de dossiers étudiants</li>
+            </ul>
+
+            <div class="article-highlight">
+              <i class="bi bi-lightbulb-fill"></i>
+              Ces défis ne sont pas insurmontables. Ils appellent simplement des solutions
+              pensées pour le contexte local, et non importées telles quelles d'autres marchés.
+            </div>
+
+            <h2>Des opportunités réelles pour les pionniers</h2>
+
+            <p>Les institutions qui font le choix du numérique aujourd'hui bénéficient d'un
+            avantage concurrentiel significatif. Elles attirent des étudiants qui valorisent
+            la modernité et la transparence, fidélisent un corps enseignant qui apprécie des
+            outils efficaces, et gagnent en crédibilité auprès des partenaires institutionnels
+            et des employeurs.</p>
+
+            <p>De plus, la digitalisation des processus génère des données précieuses sur la
+            réussite académique, le taux d'abandon ou les matières les plus difficiles — des
+            informations qui permettent de prendre de meilleures décisions pédagogiques.</p>
+
+            <p>Savoir+ LMS a été conçu précisément pour répondre aux réalités des institutions
+            congolaises : interface en français, hébergement adapté, accompagnement local et
+            tarification flexible. Si votre institution est prête à franchir le pas,
+            <a href="../contact.html" style="color:var(--sp-blue);font-weight:600;">contactez-nous</a> —
+            nous serons heureux d'échanger sur votre situation.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Votre institution est prête pour le numérique ?</h2>
+      <p>Découvrez comment Savoir+ LMS s'adapte aux réalités de votre établissement.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="../demo.html" class="btn-cta-primary"><i class="bi bi-play-circle me-2"></i>Demander une démonstration</a>
+        <a href="../contact.html" class="btn-cta-ghost"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sp-footer">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+        <span>&copy; 2026 Savoir+. Tous droits réservés.</span>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-btn" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+        <div class="d-flex flex-column align-items-center align-items-sm-end gap-2">
+          <div class="d-flex gap-3">
+            <a href="../a-propos.html">À propos</a>
+            <a href="../blog.html">Blog</a>
+            <a href="../tarifs.html">Tarifs</a>
+            <a href="../contact.html">Contact</a>
+          </div>
+          <div class="d-flex gap-3">
+            <a href="../politique-de-confidentialite.html">Politique de confidentialité</a>
+            <a href="../conditions-dutilisation.html">Conditions d'utilisation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" title="Retour en haut"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => { scrollBtn.classList.toggle('visible', window.scrollY > 400); });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

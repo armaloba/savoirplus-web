@@ -115,11 +115,6 @@
       background: var(--sp-bg); display: block;
     }
 
-    .post-card-img-placeholder {
-      width: 100%; height: 180px; background: linear-gradient(135deg, #EBF3FF 0%, #DBEAFE 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem; color: #BBDEFB;
-    }
 
     .post-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
 
@@ -147,16 +142,6 @@
     .empty-state h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
     .empty-state p { color: #64748b; font-size: 0.97rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
 
-    /* ── Topics section ── */
-    .topics-section { padding: 4rem 0; background: var(--sp-bg); border-top: 1px solid #e2e9f4; border-bottom: 1px solid #e2e9f4; }
-
-    .topic-chip {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: #fff; border: 1.5px solid #e2e9f4; border-radius: 100px;
-      padding: 0.5rem 1.1rem; font-size: 0.875rem; font-weight: 600; color: #4a5568;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .topic-chip i { color: var(--sp-blue); font-size: 0.95rem; }
 
     /* ── CTA ── */
     .cta-section {
@@ -210,12 +195,11 @@
       .sp-footer .container > div { flex-direction: column !important; text-align: center; gap: 1rem !important; }
       .social-links { justify-content: center; }
       .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
-      .topics-section .d-flex { flex-wrap: wrap; justify-content: center; }
     }
 
     @media (max-width: 576px) {
       .blog-section, .cta-section { padding: 3rem 0; }
-      .topics-section { padding: 2.5rem 0; }
+
       .sp-logo { font-size: 1.2rem; }
       .sp-logo i { font-size: 1.35rem; }
     }
@@ -281,21 +265,6 @@
     </div>
   </section>
 
-  <!-- ══════════ TOPICS ══════════ -->
-  <div class="topics-section">
-    <div class="container text-center">
-      <p class="text-muted mb-4" style="font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;">Thèmes à venir</p>
-      <div class="d-flex flex-wrap justify-content-center gap-2">
-        <span class="topic-chip"><i class="bi bi-mortarboard"></i> Gestion académique</span>
-        <span class="topic-chip"><i class="bi bi-laptop"></i> Bonnes pratiques LMS</span>
-        <span class="topic-chip"><i class="bi bi-megaphone"></i> Actualités Savoir+</span>
-        <span class="topic-chip"><i class="bi bi-chat-quote"></i> Témoignages</span>
-        <span class="topic-chip"><i class="bi bi-journal-text"></i> Guides pratiques</span>
-        <span class="topic-chip"><i class="bi bi-graph-up"></i> Numérique en RDC</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ══════════ CTA ══════════ -->
   <section class="cta-section">
     <div class="container">
@@ -358,10 +327,7 @@
       document.getElementById('posts-container').innerHTML = posts.map(post => `
         <div class="col-md-6 col-lg-4">
           <div class="post-card">
-            ${post.image
-              ? `<img src="${post.image}" alt="${post.title}" class="post-card-img">`
-              : `<div class="post-card-img-placeholder"><i class="bi bi-newspaper"></i></div>`
-            }
+            ${post.image ? `<img src="${post.image}" alt="${post.title}" class="post-card-img">` : ''}
             <div class="post-card-body">
               <span class="post-category">${post.category}</span>
               <div class="post-title">${post.title}</div>

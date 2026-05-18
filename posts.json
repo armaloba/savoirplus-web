@@ -7,6 +7,22 @@
       "category": "Gestion académique",
       "date": "2026-05-18",
       "readTime": "4 min"
+    },
+    {
+      "slug": "5-bonnes-pratiques-pour-reussir-ladoption-dun-lms",
+      "title": "5 bonnes pratiques pour réussir l'adoption d'un LMS",
+      "excerpt": "Changer les outils ne suffit pas — c'est l'accompagnement humain qui fait la différence. Voici cinq étapes clés pour que la transition numérique de votre institution soit un succès durable.",
+      "category": "Bonnes pratiques LMS",
+      "date": "2026-05-11",
+      "readTime": "5 min"
+    },
+    {
+      "slug": "enseignement-superieur-rdc-face-au-defi-du-numerique",
+      "title": "L'enseignement supérieur en RDC face au défi du numérique",
+      "excerpt": "La transformation numérique de l'enseignement supérieur en République Démocratique du Congo est en marche. Quels sont les enjeux, les freins et les opportunités pour les institutions qui veulent franchir le pas ?",
+      "category": "Numérique en RDC",
+      "date": "2026-05-04",
+      "readTime": "3 min"
     }
   ]
 }
