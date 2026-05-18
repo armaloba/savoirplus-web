@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>À propos — Savoir+ LMS</title>
-  <meta name="description" content="Découvrez l'histoire de Savoir+ LMS, notre mission, nos valeurs et l'équipe derrière la plateforme de gestion académique pensée pour les universités en RDC." />
+  <title>Blog &amp; Actualités — Savoir+ LMS</title>
+  <meta name="description" content="Conseils, actualités et ressources sur la gestion académique et les bonnes pratiques LMS pour les institutions d'enseignement supérieur en RDC." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -87,7 +87,9 @@
     .page-header .breadcrumb-item.active { color: rgba(255,255,255,0.5); }
     .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255,255,255,0.4); }
 
-    /* ── Section shared ── */
+    /* ── Blog section ── */
+    .blog-section { padding: 5rem 0; min-height: 40vh; }
+
     .section-badge {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: #EBF3FF; color: var(--sp-blue);
@@ -96,68 +98,65 @@
       letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 1rem;
     }
 
-    .sp-section-title {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 800; letter-spacing: -0.03em; color: var(--sp-text);
+    /* ── Post card ── */
+    .post-card {
+      background: #fff; border: 1.5px solid #e2e9f4; border-radius: 16px;
+      overflow: hidden; height: 100%; display: flex; flex-direction: column;
+      transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+    }
+    .post-card:hover {
+      box-shadow: 0 12px 40px rgba(21,101,192,0.1);
+      transform: translateY(-4px);
+      border-color: #BBDEFB;
     }
 
-    /* ── Story section ── */
-    .story-section { padding: 5rem 0; }
-
-    .story-quote {
-      background: #EBF3FF;
-      border-left: 4px solid var(--sp-blue);
-      border-radius: 0 12px 12px 0;
-      padding: 1.5rem 1.75rem;
-      font-size: 1.1rem; font-weight: 600; color: var(--sp-blue-dark);
-      line-height: 1.7; font-style: italic;
+    .post-card-img {
+      width: 100%; height: 180px; object-fit: cover;
+      background: var(--sp-bg); display: block;
     }
 
-    .story-stat {
-      background: var(--sp-bg); border: 1px solid #e2e9f4; border-radius: 14px;
-      padding: 1.25rem 1.5rem; text-align: center;
-    }
-    .story-stat-num { font-size: 2rem; font-weight: 800; color: var(--sp-blue); letter-spacing: -0.04em; line-height: 1; }
-    .story-stat-label { font-size: 0.83rem; color: #64748b; margin-top: 0.3rem; }
-
-    /* ── Mission & Vision ── */
-    .mv-section { padding: 5rem 0; background: var(--sp-bg); }
-
-    .mv-card {
-      background: #fff; border-radius: 18px; padding: 2.25rem;
-      border: 1px solid #e2e9f4; height: 100%;
-      transition: box-shadow 0.25s, border-color 0.25s;
-    }
-    .mv-card:hover { box-shadow: 0 8px 28px rgba(21,101,192,0.09); border-color: #BBDEFB; }
-
-    .mv-icon {
-      width: 54px; height: 54px; border-radius: 14px;
+    .post-card-img-placeholder {
+      width: 100%; height: 180px; background: linear-gradient(135deg, #EBF3FF 0%, #DBEAFE 100%);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1.25rem; flex-shrink: 0;
+      font-size: 2.5rem; color: #BBDEFB;
     }
-    .mv-icon-blue   { background: #EBF3FF; color: var(--sp-blue); }
-    .mv-icon-indigo { background: #E8EAF6; color: #283593; }
 
-    .mv-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
-    .mv-card p  { font-size: 0.95rem; color: #4a5568; line-height: 1.8; margin: 0; }
+    .post-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
 
-    /* ── Values section ── */
-    .values-section { padding: 5rem 0; }
-
-    .value-card {
-      display: flex; gap: 1.125rem; align-items: flex-start;
-      padding: 1.5rem; background: var(--sp-bg); border-radius: 14px;
-      border: 1px solid #e2e9f4; height: 100%;
-      transition: box-shadow 0.25s, border-color 0.25s;
+    .post-category {
+      display: inline-block; background: #EBF3FF; color: var(--sp-blue);
+      border-radius: 100px; padding: 0.2rem 0.75rem;
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.75rem;
     }
-    .value-card:hover { box-shadow: 0 6px 20px rgba(21,101,192,0.08); border-color: #BBDEFB; }
 
-    .value-icon {
-      width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    .post-title { font-size: 1.05rem; font-weight: 700; color: var(--sp-text); line-height: 1.4; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+    .post-excerpt { font-size: 0.88rem; color: #64748b; line-height: 1.7; flex: 1; margin-bottom: 1rem; }
+    .post-meta { font-size: 0.8rem; color: #94a3b8; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+
+    .post-read-more {
+      color: var(--sp-blue); font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;
+      transition: gap 0.2s;
     }
-    .value-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .value-card p  { font-size: 0.87rem; color: #64748b; line-height: 1.65; margin: 0; }
+    .post-read-more:hover { color: var(--sp-blue-dark); gap: 0.5rem; }
+
+    /* ── Empty state ── */
+    .empty-state { text-align: center; padding: 5rem 1rem; }
+    .empty-state-icon { font-size: 4rem; color: #BBDEFB; margin-bottom: 1.5rem; display: block; }
+    .empty-state h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+    .empty-state p { color: #64748b; font-size: 0.97rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.7; }
+
+    /* ── Topics section ── */
+    .topics-section { padding: 4rem 0; background: var(--sp-bg); border-top: 1px solid #e2e9f4; border-bottom: 1px solid #e2e9f4; }
+
+    .topic-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #fff; border: 1.5px solid #e2e9f4; border-radius: 100px;
+      padding: 0.5rem 1.1rem; font-size: 0.875rem; font-weight: 600; color: #4a5568;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .topic-chip i { color: var(--sp-blue); font-size: 0.95rem; }
 
     /* ── CTA ── */
     .cta-section {
@@ -165,11 +164,10 @@
       padding: 5rem 0; color: #fff; text-align: center;
     }
     .cta-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
-    .cta-section p  { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2rem; }
+    .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.05rem; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
 
     .btn-cta-primary {
-      background: #fff; color: var(--sp-blue);
-      border: none; border-radius: 10px;
+      background: #fff; color: var(--sp-blue); border: none; border-radius: 10px;
       padding: 0.85rem 2rem; font-weight: 700; font-size: 1rem;
       text-decoration: none; transition: background 0.2s, box-shadow 0.2s;
       display: inline-flex; align-items: center;
@@ -208,15 +206,16 @@
     .social-btn { width:34px; height:34px; border-radius:8px; background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.6); display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:background 0.2s,color 0.2s; }
     .social-btn:hover { background:rgba(255,255,255,0.18); color:#fff; }
 
-    /* ── Responsive ── */
     @media (max-width: 767px) {
       .sp-footer .container > div { flex-direction: column !important; text-align: center; gap: 1rem !important; }
       .social-links { justify-content: center; }
       .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
+      .topics-section .d-flex { flex-wrap: wrap; justify-content: center; }
     }
 
     @media (max-width: 576px) {
-      .story-section, .mv-section, .values-section, .team-section, .cta-section { padding: 3rem 0; }
+      .blog-section, .cta-section { padding: 3rem 0; }
+      .topics-section { padding: 2.5rem 0; }
       .sp-logo { font-size: 1.2rem; }
       .sp-logo i { font-size: 1.35rem; }
     }
@@ -261,164 +260,47 @@
       <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb" style="font-size:0.85rem;">
           <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-          <li class="breadcrumb-item active">À propos</li>
+          <li class="breadcrumb-item active">Blog &amp; Actualités</li>
         </ol>
       </nav>
-      <h1>À propos de Savoir+ LMS</h1>
-      <p>Découvrez pourquoi nous avons construit Savoir+ LMS, notre mission, notre vision et les valeurs qui nous guident.</p>
+      <h1>Blog &amp; Actualités</h1>
+      <p>Conseils, actualités et ressources sur la gestion académique et les bonnes pratiques LMS
+      pour les institutions d'enseignement supérieur.</p>
     </div>
   </div>
 
-  <!-- ══════════ NOTRE HISTOIRE ══════════ -->
-  <section class="story-section">
+  <!-- ══════════ POSTS ══════════ -->
+  <section class="blog-section">
     <div class="container">
-      <div class="row align-items-center gy-5">
-
-        <div class="col-lg-6">
-          <div class="section-badge"><i class="bi bi-book"></i> Notre histoire</div>
-          <h2 class="sp-section-title mb-4">Né d'un besoin réel sur le terrain</h2>
-          <p style="color:#4a5568;font-size:0.97rem;line-height:1.85;margin-bottom:1.25rem;">
-            Dans de nombreuses universités et instituts supérieurs en République Démocratique du Congo,
-            la gestion académique repose encore aujourd'hui sur des tableurs, des registres papier et
-            des systèmes éparpillés. Les étudiants attendent parfois des semaines pour consulter leurs
-            résultats. Les enseignants gèrent manuellement des centaines de dossiers. Les administrations
-            peinent à produire des rapports fiables.
-          </p>
-          <p style="color:#4a5568;font-size:0.97rem;line-height:1.85;margin-bottom:1.75rem;">
-            Savoir+ LMS est né de ce constat. Nous avons construit une plateforme pensée pour le contexte
-            local — en français, accessible depuis n'importe quel appareil, et conçue pour simplifier
-            chaque aspect de la gestion académique, de l'inscription à la délibération.
-          </p>
-          <div class="story-quote">
-            « Nous croyons que chaque étudiant en RDC mérite une expérience académique moderne et
-            organisée. »
-          </div>
-        </div>
-
-        <div class="col-lg-5 offset-lg-1">
-          <div class="row g-3">
-            <div class="col-6">
-              <div class="story-stat">
-                <div class="story-stat-num">12+</div>
-                <div class="story-stat-label">Modules intégrés dans la plateforme</div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="story-stat">
-                <div class="story-stat-num">100%</div>
-                <div class="story-stat-label">Conçu pour le contexte de la RDC</div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="story-stat">
-                <div class="story-stat-num">Web</div>
-                <div class="story-stat-label">Accessible sur tous les appareils</div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="story-stat">
-                <div class="story-stat-num">FR</div>
-                <div class="story-stat-label">Interface entièrement en français</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="text-center mb-5" id="blog-header" style="display:none !important;">
+        <div class="section-badge"><i class="bi bi-newspaper"></i> Derniers articles</div>
+      </div>
+      <div class="row g-4" id="posts-container">
+        <!-- Rendered by JS -->
       </div>
     </div>
   </section>
 
-  <!-- ══════════ MISSION & VISION ══════════ -->
-  <section class="mv-section">
-    <div class="container">
-      <div class="text-center mb-5">
-        <div class="section-badge"><i class="bi bi-compass"></i> Ce qui nous guide</div>
-        <h2 class="sp-section-title">Notre mission et notre vision</h2>
-      </div>
-      <div class="row g-4 justify-content-center">
-
-        <div class="col-md-6 col-lg-5">
-          <div class="mv-card">
-            <div class="mv-icon mv-icon-blue"><i class="bi bi-bullseye"></i></div>
-            <h3>Notre mission</h3>
-            <p>Moderniser la gestion de l'enseignement supérieur en République Démocratique du Congo
-            en offrant une plateforme numérique accessible, fiable et adaptée aux réalités locales —
-            pour que chaque institution puisse se concentrer sur ce qui compte vraiment : l'éducation.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-5">
-          <div class="mv-card">
-            <div class="mv-icon mv-icon-indigo"><i class="bi bi-eye"></i></div>
-            <h3>Notre vision</h3>
-            <p>Un avenir où chaque université et institut supérieur en RDC dispose des outils numériques
-            nécessaires pour offrir à ses étudiants une expérience académique organisée, transparente
-            et de qualité — quel que soit leur lieu d'étude.</p>
-          </div>
-        </div>
-
+  <!-- ══════════ TOPICS ══════════ -->
+  <div class="topics-section">
+    <div class="container text-center">
+      <p class="text-muted mb-4" style="font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;">Thèmes à venir</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <span class="topic-chip"><i class="bi bi-mortarboard"></i> Gestion académique</span>
+        <span class="topic-chip"><i class="bi bi-laptop"></i> Bonnes pratiques LMS</span>
+        <span class="topic-chip"><i class="bi bi-megaphone"></i> Actualités Savoir+</span>
+        <span class="topic-chip"><i class="bi bi-chat-quote"></i> Témoignages</span>
+        <span class="topic-chip"><i class="bi bi-journal-text"></i> Guides pratiques</span>
+        <span class="topic-chip"><i class="bi bi-graph-up"></i> Numérique en RDC</span>
       </div>
     </div>
-  </section>
-
-  <!-- ══════════ VALEURS ══════════ -->
-  <section class="values-section">
-    <div class="container">
-      <div class="text-center mb-5">
-        <div class="section-badge"><i class="bi bi-heart"></i> Nos valeurs</div>
-        <h2 class="sp-section-title">Ce en quoi nous croyons</h2>
-      </div>
-      <div class="row g-4">
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="value-card">
-            <div class="value-icon" style="background:#EBF3FF;color:#1565C0;"><i class="bi bi-phone"></i></div>
-            <div>
-              <h4>Accessibilité</h4>
-              <p>Une plateforme pensée pour fonctionner sur tous les appareils, même avec une connexion internet limitée.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="value-card">
-            <div class="value-icon" style="background:#E8F5E9;color:#2E7D32;"><i class="bi bi-grid-1x2"></i></div>
-            <div>
-              <h4>Simplicité</h4>
-              <p>Une prise en main rapide et intuitive, sans formation technique préalable pour les équipes administratives.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="value-card">
-            <div class="value-icon" style="background:#E0F2F1;color:#00695C;"><i class="bi bi-shield-check"></i></div>
-            <div>
-              <h4>Fiabilité</h4>
-              <p>Des données sécurisées et toujours disponibles au moment où vous en avez le plus besoin.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-3">
-          <div class="value-card">
-            <div class="value-icon" style="background:#EDE7F6;color:#6A1B9A;"><i class="bi bi-people"></i></div>
-            <div>
-              <h4>Accompagnement</h4>
-              <p>Un support réactif et un accompagnement personnalisé à chaque étape de votre utilisation de la plateforme.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  </div>
 
   <!-- ══════════ CTA ══════════ -->
   <section class="cta-section">
     <div class="container">
-      <h2>Rejoignez le mouvement</h2>
-      <p>Modernisez la gestion de votre institution avec Savoir+ LMS.</p>
+      <h2>Prêt à moderniser votre institution ?</h2>
+      <p>Découvrez Savoir+ LMS en action avec une démonstration gratuite et personnalisée.</p>
       <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="demo.html" class="btn-cta-primary"><i class="bi bi-play-circle me-2"></i>Demander une démonstration</a>
         <a href="contact.html" class="btn-cta-ghost"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
@@ -462,6 +344,61 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
+    fetch('posts.json')
+      .then(r => r.json())
+      .then(data => renderPosts(data.posts))
+      .catch(() => renderEmptyState());
+
+    function renderPosts(posts) {
+      if (!posts || posts.length === 0) {
+        renderEmptyState();
+        return;
+      }
+      document.getElementById('blog-header').style.display = '';
+      document.getElementById('posts-container').innerHTML = posts.map(post => `
+        <div class="col-md-6 col-lg-4">
+          <div class="post-card">
+            ${post.image
+              ? `<img src="${post.image}" alt="${post.title}" class="post-card-img">`
+              : `<div class="post-card-img-placeholder"><i class="bi bi-newspaper"></i></div>`
+            }
+            <div class="post-card-body">
+              <span class="post-category">${post.category}</span>
+              <div class="post-title">${post.title}</div>
+              <div class="post-excerpt">${post.excerpt}</div>
+              <div class="post-meta">
+                <span><i class="bi bi-calendar3 me-1"></i>${formatDate(post.date)}</span>
+                <span><i class="bi bi-clock me-1"></i>${post.readTime}</span>
+              </div>
+              <a href="blog/${post.slug}.html" class="post-read-more">
+                Lire l'article <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderEmptyState() {
+      document.getElementById('posts-container').innerHTML = `
+        <div class="col-12">
+          <div class="empty-state">
+            <i class="bi bi-newspaper empty-state-icon"></i>
+            <h2>Des articles arrivent bientôt</h2>
+            <p>Nous préparons des contenus sur la gestion académique, les bonnes pratiques LMS
+            et les actualités de l'enseignement supérieur en RDC. Consultez cette page régulièrement pour ne rien manquer.</p>
+            <a href="contact.html" class="btn-cta-primary" style="margin:0 auto;">
+              <i class="bi bi-envelope me-2"></i>Nous contacter
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function formatDate(dateStr) {
+      return new Date(dateStr).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
     const scrollBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
       scrollBtn.classList.toggle('visible', window.scrollY > 400);
