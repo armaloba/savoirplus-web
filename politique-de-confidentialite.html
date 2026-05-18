@@ -112,6 +112,20 @@
       .social-links { justify-content: center; }
       .sp-footer .d-flex.gap-3 { flex-direction: column !important; align-items: center; gap: 0.5rem !important; }
     }
+
+    .scroll-top {
+      position: fixed; bottom: 1.75rem; right: 1.75rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--sp-blue); color: #fff; border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer;
+      box-shadow: 0 4px 16px rgba(21,101,192,0.35);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity 0.3s, visibility 0.3s, transform 0.3s, background 0.2s;
+      z-index: 999;
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-top:hover { background: var(--sp-blue-dark); }
   </style>
 </head>
 <body>
@@ -288,6 +302,17 @@
     </div>
   </footer>
 
+  <button class="scroll-top" id="scrollTop" title="Retour en haut">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>
