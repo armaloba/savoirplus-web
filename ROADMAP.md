@@ -7,10 +7,9 @@
 - [x] Hero section with dashboard screenshot
 - [x] 12+ features section
 - [x] "Pour qui ?" section
-- [x] Contact / demo request form (Web3Forms)
 - [x] Footer with social media placeholders
 - [x] Favicon
-- [x] Scroll to top button
+- [x] Scroll to top button (all pages)
 - [x] Mobile & tablet responsive
 - [x] SEO meta tags + Open Graph
 - [x] Custom domain `savoirpluslms.com`
@@ -20,70 +19,46 @@
 
 ---
 
-## Phase 2 — Upcoming Pages
+## Phase 2 — Additional Pages ✅ Complete
 
-### `/a-propos` — À propos
-- Story behind Savoir+ LMS
-- Mission and vision
-- Team / founding members
-- Why we built it (problem we're solving for DRC institutions)
-
-### `/tarifs` — Tarifs
-- Pricing plans (per institution size or per module)
-- Free trial / demo CTA
-- FAQ section (billing, contracts, support)
-
-### `/contact` — Contact
-- Dedicated contact page (not just the form at the bottom of the homepage)
-- Office location / address (when available)
-- Phone number (when available)
-- Contact form (reuse the existing one)
-- Map embed (optional)
-
-### `/demo` — Démonstration
-- Dedicated demo request page
-- Embedded video demo or screenshot walkthrough
-- Demo request form
-- What to expect after requesting a demo
-
-### `/blog` — Actualités
-- Articles about edtech in DRC
-- Product updates and new feature announcements
-- Tips for institutions using LMS platforms
+- [x] `/contact` — Dedicated contact page with form validation (Web3Forms)
+- [x] `/demo` — Demo request page with feature overview and form
+- [x] `/a-propos` — À propos page (histoire, mission, vision, valeurs)
+- [x] `/tarifs` — Pricing page (3 tiers, tarif sur devis, FAQ, CTA)
+- [x] `/blog` — Blog & Actualités with JSON-driven architecture
+  - [x] 3 published posts (Gestion académique, Bonnes pratiques LMS, Numérique en RDC)
+  - [x] Individual article pages with Lora serif typography and highlight callouts
+- [x] `/politique-de-confidentialite` — Full privacy policy
+- [x] `/conditions-dutilisation` — Full terms of use
+- [x] Navbar consistent across all pages (À propos · Démonstration · Tarifs · Blog · Contact)
+- [x] Mobile hamburger menu on all pages
+- [x] Footer navigation links on all pages (À propos · Blog · Tarifs · Contact + legal)
 
 ---
 
 ## Phase 3 — Nice to Have
 
 - [ ] Testimonials section (from early institutions)
-- [ ] `og-image.png` — social media preview image (1200x630px)
-- [ ] Social media profile URLs in footer
-- [ ] Professional email `contact@savoirpluslms.com` via Microsoft 365
-- [ ] Analytics (Microsoft Clarity or Google Analytics)
+- [ ] `og-image.png` — social media preview image (1200×630px)
+- [ ] Real social media profile URLs in footer (replace `href="#"`)
+- [ ] Update `@savoirpluslms` Twitter handle in SEO meta tags once account is created
+- [ ] Google Analytics (Measurement ID needed)
 - [ ] Cookie consent banner (GDPR-lite)
 - [ ] Multi-language support (French + English)
 - [ ] Live chat widget (e.g. Tawk.to — free)
 
 ---
 
-## Footer Pages — Pending Build
+## Blog — Content Pipeline
 
-### `/politique-de-confidentialite` — Politique de confidentialité
-- Currently an empty placeholder page
-- Needs full privacy policy content covering:
-  - Data collected (form submissions, name, email, institution)
-  - How data is used and stored
-  - Third-party services (Web3Forms, Azure)
-  - User rights and contact for data requests
+- [x] Pourquoi votre université a besoin d'un LMS en 2026 *(Gestion académique)*
+- [x] 5 bonnes pratiques pour réussir l'adoption d'un LMS *(Bonnes pratiques LMS)*
+- [x] L'enseignement supérieur en RDC face au défi du numérique *(Numérique en RDC)*
+- [ ] Upcoming: Actualités Savoir+
+- [ ] Upcoming: Témoignages
+- [ ] Upcoming: Guides pratiques
 
-### `/conditions-dutilisation` — Conditions d'utilisation
-- Currently an empty placeholder page
-- Needs full terms of use content covering:
-  - Acceptance of terms
-  - Use of the website and services
-  - Intellectual property
-  - Limitation of liability
-  - Governing law (DRC)
+> To publish a new article: add an entry to `posts.json` and drop the HTML file in the `blog/` folder.
 
 ---
 
